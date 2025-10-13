@@ -104,7 +104,6 @@ const malaysiaFnbMap = {
           { field: "name", title: "Business" },
           { field: "locality", title: "Locality" },
           { field: "region", title: "Region" },
-          { field: "website", title: "Website" }
         ]
       }
     }
