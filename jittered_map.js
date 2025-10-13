@@ -2,8 +2,8 @@
 const malaysiaFnbMap = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   title: {
-    text: "Food & Beverage Businesses in Malaysia",
-    subtitle: "Region and Locality of 281 F&B Businesses",
+    text: "Geographic Distribution of Food & Beverage Businesses in Malaysia",
+    subtitle: "Mapping the locations of 281 F&B establishments across Malaysian regions"",
     fontSize: 25,
     fontWeight: "bold",
     subtitleFontSize: 16,
