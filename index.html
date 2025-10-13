@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connecting Taste and Trade: Food Reviews and F&B Businesses Across Malaysia</title>
+
+  <!-- Vega libraries (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+  <style>
+    :root { --maxw: 1200px; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: #222;
+      background: #fafafa;
+    }
+    header {
+      padding: 1rem 1rem 0.5rem;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      text-align: center; 
+    }
+    .vis-wrap {
+      max-width: var(--maxw);
+      margin: 0 auto 28px;
+      padding: 0 1rem;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e6e6e6;
+      border-radius: 12px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+      padding: 14px;
+    }
+    .title {
+      margin: 0 0 10px;
+      font-size: 50px;
+      font-weight: 700;
+      color: #333;
+    }
+    /* Make embeds responsive */
+    .vega-embed {
+      width: 100% !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="title">Connecting Taste and Trade: Food Reviews and F&B Businesses Across Malaysia</h1>
+  </header>
+
+  <!-- Stacked bar chart (top of page) -->
+  <section class="vis-wrap">
+    <div class="card">
+      <div id="stacked_chart" aria-label="Stacked bar chart of ratings"></div>
+    </div>
+  </section>
+
+  <!-- Map (below stacked chart) -->
+  <section class="vis-wrap">
+    <div class="card">
+      <div id="fnb_map" aria-label="Map of F&B businesses in Malaysia"></div>
+    </div>
+  </section>
+
+  <!-- Load your visualisations (stacked first, then map) -->
+  <script src="stacked_barchart.js"></script>
+  <script src="jittered_map.js"></script>
+</body>
+</html>
