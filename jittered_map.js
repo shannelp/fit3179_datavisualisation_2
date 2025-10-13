@@ -3,36 +3,31 @@ const malaysiaFnbMap = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   title: {
     text: "Geographic Distribution of Food & Beverage Businesses in Malaysia",
-    subtitle: "Mapping the locations of 281 F&B establishments across Malaysian regions"",
+    subtitle: "Mapping the locations of 281 F&B establishments across Malaysian regions",
     fontSize: 25,
     fontWeight: "bold",
     subtitleFontSize: 16,
     anchor: "middle",
-    color: "#064587",
+    color: "black",
     subtitleColor: "#333333"
   },
-  width: "container",
-  height: 600,
+  width: 1000,
+  height: 480,
   projection: { type: "mercator", center: [109.4, 4], scale: 2300 },
 
-  // keep point colors independent from any geoshape coloring
   resolve: { scale: { color: "independent" } },
 
   layer: [
     {
-      data: { graticule: { extent: [[8, -5], [135, 15]], step: [3, 3] } },
-      mark: { type: "geoshape", stroke: "#ddebf1", fill: null }
+      data: { graticule: { extent: [[8, -5], [135, 15]], step: [4, 4] } },
+      mark: { type: "geoshape", stroke: "#e3e3e3", fill: null }
     },
     {
       data: {
         url: "https://raw.githubusercontent.com/shannelp/vegadata/refs/heads/main/malaysia_neighbouring_countries.json",
         format: { type: "json" }
       },
-      mark: { type: "geoshape", stroke: "#9e9e9e", fill: null },
-      // no legend so it won't clash with point legend
-      encoding: {
-        tooltip: [{ field: "name", title: "Country" }]
-      }
+      mark: { type: "geoshape", stroke: "#9e9e9e", fill: null }
     },
     {
       data: {
@@ -41,8 +36,6 @@ const malaysiaFnbMap = {
       },
       mark: { type: "geoshape", fill: "none", stroke: "#1b211d" }
     },
-
-    // Points layer (interactive legend)
     {
       data: {
         url: "https://raw.githubusercontent.com/shannelp/vegadata/refs/heads/main/malaysia_fnb_points.csv",
@@ -58,9 +51,7 @@ const malaysiaFnbMap = {
           }
         }
       },
-      transform: [
-        { filter: "isValid(datum.longitude) && isValid(datum.latitude)" }
-      ],
+      transform: [{ filter: "isValid(datum.longitude) && isValid(datum.latitude)" }],
       params: [
         {
           name: "regionSelect",
@@ -98,16 +89,18 @@ const malaysiaFnbMap = {
         },
         opacity: {
           condition: { param: "regionSelect", value: 0.9 },
-          value: 0.15
+          value: 0.1
         },
         tooltip: [
           { field: "name", title: "Business" },
           { field: "locality", title: "Locality" },
-          { field: "region", title: "Region" },
+          { field: "region", title: "Region" }
         ]
       }
     }
   ]
 };
 
+// Mount into an element with id="fnb_map"
 vegaEmbed("#fnb_map", malaysiaFnbMap, { actions: false }).catch(console.error);
+
