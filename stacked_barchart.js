@@ -31,6 +31,7 @@ const stackedSpec = {
     }
   ],
   layer: [
+    // --- Main stacked bars ---
     {
       mark: "bar",
       encoding: {
@@ -66,6 +67,8 @@ const stackedSpec = {
         }
       ]
     },
+
+    // --- Average line ---
     {
       transform: [
         {
@@ -94,6 +97,36 @@ const stackedSpec = {
             format: ".2f"
           }
         ]
+      }
+    },
+
+    // --- Label for average line ---
+    {
+      transform: [
+        {
+          aggregate: [
+            { op: "sum", field: "ReviewCount", as: "totalReviews" },
+            { op: "distinct", field: "Location", as: "numLocations" }
+          ]
+        },
+        {
+          calculate: "datum.totalReviews / datum.numLocations",
+          as: "avgPerLocation"
+        }
+      ],
+      mark: {
+        type: "text",
+        align: "center",
+        baseline: "bottom",
+        dy: -8,
+        fontSize: 14,
+        fontWeight: "bold",
+        color: "#6ac293"
+      },
+      encoding: {
+        y: { field: "avgPerLocation", type: "quantitative" },
+        x: { value: 500 }, // horizontally centered
+        text: { value: "Average Rating" }
       }
     }
   ],
