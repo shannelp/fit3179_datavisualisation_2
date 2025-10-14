@@ -60,7 +60,7 @@ const stackedSpec = {
         ],
         opacity: {
           condition: { param: "ratingSelect", value: 1 },
-          value: 0.3
+          value: 0.0001
         }
       },
       params: [
