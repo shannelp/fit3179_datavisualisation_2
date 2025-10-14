@@ -93,7 +93,7 @@ const stackedSpec = {
         tooltip: [
           {
             field: "avgPerLocation",
-            title: "Average Reviews per Location",
+            title: "Average Value",
             format: ".2f"
           }
         ]
@@ -126,7 +126,7 @@ const stackedSpec = {
       encoding: {
         y: { field: "avgPerLocation", type: "quantitative" },
         x: { value: 500 }, // horizontally centered
-        text: { value: "Average Rating" }
+        text: { value: "Average Rating Per Location" }
       }
     }
   ],
