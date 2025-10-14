@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DV2</title>
 
-  <!-- Vega libraries (updated) -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.25.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.16.3"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.25.0"></script>
+  <!-- Vega libraries (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
   <style>
     :root { --maxw: 1200px; }
@@ -23,7 +23,7 @@
       padding: 1rem 1rem 0.5rem;
       max-width: var(--maxw);
       margin: 0 auto;
-      text-align: center;
+      text-align: center; 
     }
     .vis-wrap {
       max-width: var(--maxw);
@@ -43,31 +43,33 @@
       font-weight: 700;
       color: #333;
     }
-    .vega-embed { width: 100% !important; }
+    /* Make embeds responsive */
+    .vega-embed {
+      width: 100% !important;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1 class="title">From Plates to Patterns: Food Reviews and F&amp;B Businesses across Malaysia</h1>
+    <h1 class="title">From Plates to Patterns: Food Reviews and F&B Businesses accross Malaysia</h1>
   </header>
 
-  <!-- Stacked Bar Chart -->
+  <!-- Stacked bar chart (top of page) -->
   <section class="vis-wrap">
     <div class="card">
       <div id="stacked_chart" aria-label="Stacked bar chart of ratings"></div>
     </div>
   </section>
 
-  <!-- Map -->
+  <!-- Map (below stacked chart) -->
   <section class="vis-wrap">
     <div class="card">
       <div id="fnb_map" aria-label="Map of F&B businesses in Malaysia"></div>
     </div>
   </section>
 
-  <!-- Load visualisations (filenames must match your repo) -->
+  <!-- Load your visualisations (stacked first, then map) -->
   <script src="stacked_barchart.js"></script>
   <script src="jittered_map.js"></script>
 </body>
 </html>
-
