@@ -1,7 +1,7 @@
 // vegalite_business_sizes.js
 const malaysiaFnbSizes = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
-  description: "Compact radial chart with top-right interactive legend and tooltips.",
+  description: "Compact radial chart of the distribution of F&B Businesses",
   width: 700,
   height: 700,
 
