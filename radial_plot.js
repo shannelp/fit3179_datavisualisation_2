@@ -1,7 +1,7 @@
 // radial_plot.js
 const radialFnbSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
-  description: "Compact radial chart of the distribution of F&B Businesses",
+  description: "Compact radial chart of the distribution of 281 F&B Businesses",
   width: 700,
   height: 700,
   data: {
@@ -11,7 +11,7 @@ const radialFnbSpec = {
   },
   title: {
     text: "Food & Beverage Businesses Sizes in Malaysia",
-    subtitle: "Grouped by business size range (based on F&B registration points)",
+    subtitle: "Grouped by the size ranges of 281 business",
     fontSize: 25,
     subtitleFontSize: 16,
     subtitleColor: "#5e5e5e",
