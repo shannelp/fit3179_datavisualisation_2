@@ -15,37 +15,41 @@ const malaysiaFnbMap = {
   height: 600,
   projection: { type: "mercator", center: [109.4, 4], scale: 2300 },
 
-  // keep point colors independent from any geoshape coloring
+  // Keep point colors independent from any geoshape coloring
   resolve: { scale: { color: "independent" } },
 
   layer: [
+    // --- Graticule background ---
     {
       data: { graticule: { extent: [[8, -5], [135, 15]], step: [3, 3] } },
       mark: { type: "geoshape", stroke: "#ddebf1", fill: null }
     },
+
+    // --- Neighbouring countries ---
     {
       data: {
-        url: "https://raw.githubusercontent.com/shannelp/vegadata/refs/heads/main/malaysia_neighbouring_countries.json",
+        url: "https://raw.githubusercontent.com/shannelp/vegadata/main/malaysia_neighbouring_countries.json",
         format: { type: "json" }
       },
       mark: { type: "geoshape", stroke: "#9e9e9e", fill: null },
-      // no legend so it won't clash with point legend
       encoding: {
         tooltip: [{ field: "name", title: "Country" }]
       }
     },
+
+    // --- Malaysia outline ---
     {
       data: {
-        url: "https://raw.githubusercontent.com/shannelp/vegadata/refs/heads/main/malaysia.geojson",
+        url: "https://raw.githubusercontent.com/shannelp/vegadata/main/malaysia.geojson",
         format: { type: "json", property: "features" }
       },
       mark: { type: "geoshape", fill: "none", stroke: "#1b211d" }
     },
 
-    // Points layer (interactive legend)
+    // --- Points layer with legend-click highlight ---
     {
       data: {
-        url: "https://raw.githubusercontent.com/shannelp/vegadata/refs/heads/main/malaysia_fnb_points.csv",
+        url: "https://raw.githubusercontent.com/shannelp/vegadata/main/malaysia_fnb_points.csv",
         format: {
           type: "csv",
           parse: {
@@ -61,49 +65,51 @@ const malaysiaFnbMap = {
       transform: [
         { filter: "isValid(datum.longitude) && isValid(datum.latitude)" }
       ],
+
+      // Selection: click legend to highlight region
       params: [
         {
           name: "regionSelect",
-          select: { type: "point", fields: ["region"], bind: "legend" }
+          select: { type: "point", fields: ["region"] },
+          bind: "legend"
         }
       ],
-      mark: { type: "circle", opacity: 0.7, stroke: "#00000033", strokeWidth: 0.3 },
+
+      mark: {
+        type: "circle",
+        stroke: "#00000033",
+        strokeWidth: 0.3
+      },
+
       encoding: {
         longitude: { field: "longitude", type: "quantitative" },
         latitude: { field: "latitude", type: "quantitative" },
         size: { value: 60 },
+
         color: {
           field: "region",
           type: "nominal",
           title: "Region",
           scale: {
             range: [
-              "#b28dff",
-              "#f78ecf",
-              "#d4a373",
-              "#ee6055",
-              "#86e7b8",
-              "#dd7f5a",
-              "#fcb373",
-              "#7f7f7f",
-              "#bcbd22",
-              "#7bdff2",
-              "#f2cd60",
-              "#637939",
-              "#a0ced9",
-              "#ec698f"
+              "#b28dff", "#f78ecf", "#d4a373", "#ee6055", "#86e7b8",
+              "#dd7f5a", "#fcb373", "#7f7f7f", "#bcbd22", "#7bdff2",
+              "#f2cd60", "#637939", "#a0ced9", "#ec698f"
             ]
           },
           legend: { title: "Region", orient: "right", columns: 1 }
         },
+
+        // Opacity control: highlight selected legend region, dim others
         opacity: {
           condition: { param: "regionSelect", value: 0.9 },
           value: 0.15
         },
+
         tooltip: [
           { field: "name", title: "Business" },
           { field: "locality", title: "Locality" },
-          { field: "region", title: "Region" },
+          { field: "region", title: "Region" }
         ]
       }
     }
