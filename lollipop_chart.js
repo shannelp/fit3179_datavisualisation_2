@@ -93,7 +93,7 @@ const avgRatingSpec = {
           }
         },
         size: {
-          condition: { test: "datum.isTop", value: 320 },
+          condition: { test: "datum.isTop", value: 220 },
           value: 220
         },
         color: {
