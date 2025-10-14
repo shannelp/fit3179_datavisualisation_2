@@ -102,7 +102,7 @@ const malaysiaFnbMap = {
             orient: "right",
             columns: 1,
             labelExpr:
-              "({'johor':'Johor','kedah':'Kedah','kuala lumpur':'Kuala Lumpur','melaka':'Melaka','pahang':'Pahang','perak':'Perak','pulau pinang':'Pulau Pinang','sabah':'Sabah','sarawak':'Sarawak','selangor':'Selangor'})[datum.label] || datum.label"
+              "({'johor':'Johor','kedah':'Kedah', 'kelantan':'Kelantan', 'kuala lumpur':'Kuala Lumpur', 'labuan':'Labuan','melaka':'Melaka', 'negeri sembilan':'Negeri Sembilan', 'pahang':'Pahang','perak':'Perak','pulau pinang':'Pulau Pinang','sabah':'Sabah','sarawak':'Sarawak','selangor':'Selangor','terengganu':'Terengganu'})[datum.label] || datum.label"
           }
         },
 
