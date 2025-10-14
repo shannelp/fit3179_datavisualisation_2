@@ -126,7 +126,7 @@ const stackedSpec = {
       encoding: {
         y: { field: "avgPerLocation", type: "quantitative" },
         x: { value: 500 }, // horizontally centered
-        text: { value: "Average Rating Per Location" },
+        text: { value: "Average Review Count Per Location" },
         format: ",.2f"
       }
     }
