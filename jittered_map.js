@@ -17,7 +17,7 @@ const malaysiaFnbMap = {
 
   // Keep point colors independent from any geoshape coloring
   resolve: { scale: { color: "independent" } },
-
+  
   layer: [
     // --- Graticule background ---
     {
@@ -97,7 +97,13 @@ const malaysiaFnbMap = {
               "#f2cd60", "#637939", "#a0ced9", "#ec698f"
             ]
           },
-          legend: { title: "Region", orient: "right", columns: 1 }
+          legend: {
+            title: "Region",
+            orient: "right",
+            columns: 1,
+            labelExpr:
+              "({'johor':'Johor','kedah':'Kedah','kuala lumpur':'Kuala Lumpur','melaka':'Melaka','pahang':'Pahang','perak':'Perak','pulau pinang':'Pulau Pinang','sabah':'Sabah','sarawak':'Sarawak','selangor':'Selangor'})[datum.label] || datum.label"
+          }
         },
 
         // Opacity control: highlight selected legend region, dim others
