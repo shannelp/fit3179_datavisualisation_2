@@ -12,8 +12,8 @@ const radialFnbSpec = {
   title: {
     text: "Distribution of Food & Beverage Businesses in Malaysia",
     subtitle: "Grouped by business size range (based on F&B registration points)",
-    fontSize: 20,
-    subtitleFontSize: 13,
+    fontSize: 25,
+    subtitleFontSize: 16,
     subtitleColor: "#5e5e5e",
     anchor: "middle",
     dy: -10
