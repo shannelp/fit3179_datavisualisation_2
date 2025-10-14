@@ -8,8 +8,8 @@ const malaysiaFnbMap = {
     fontWeight: "bold",
     subtitleFontSize: 16,
     anchor: "middle",
-    color: "black",
-    subtitleColor: "#333333"
+    color: "#000000",
+    subtitleColor: "#5e5e5e"
   },
   width: "container",
   height: 600,
