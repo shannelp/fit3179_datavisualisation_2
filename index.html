@@ -61,16 +61,17 @@
     }
 
     /* Center the lollipop chart */
-    #ravg_rating_chart {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    #avg_rating_chart {
+    display: flex;
+    justify-content: center;   /* center horizontally */
+    align-items: center;       /* center vertically if taller container */
     }
 
-    /* Ensure Vega embed itself is centered */
+/* Ensure the Vega-Embed child centers too */
     #avg_rating_chart > div {
-      margin: 0 auto !important;
+    margin: 0 auto !important;
     }
+    
   </style>
 </head>
 <body>
