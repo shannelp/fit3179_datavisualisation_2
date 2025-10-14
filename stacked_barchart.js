@@ -98,7 +98,7 @@ const stackedSpec = {
           {
             field: "avgPerLocation",
             title: "Average Value",
-            format: ".2f"
+            format: ",.2f"
           }
         ]
       }
