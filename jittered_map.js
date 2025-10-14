@@ -1,4 +1,4 @@
-// vegalite_map.js
+// jittered_map.js
 const malaysiaFnbMap = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   title: {
@@ -102,8 +102,8 @@ const malaysiaFnbMap = {
 
         // Opacity control: highlight selected legend region, dim others
         opacity: {
-          condition: { param: "regionSelect", value: 0.9 },
-          value: 0.15
+          condition: { param: "regionSelect", value: 1 },
+          value: 0
         },
 
         tooltip: [
