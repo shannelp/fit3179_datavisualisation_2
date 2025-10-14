@@ -31,7 +31,7 @@ const malaysiaFnbMap = {
         url: "https://raw.githubusercontent.com/shannelp/vegadata/main/malaysia_neighbouring_countries.json",
         format: { type: "json" }
       },
-      mark: { type: "geoshape", stroke: "#9e9e9e", fill: null },
+      mark: { type: "geoshape", stroke: "#D3D3D3", fill: null },
       encoding: {
         tooltip: [{ field: "name", title: "Country" }]
       }
