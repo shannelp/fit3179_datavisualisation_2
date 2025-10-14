@@ -8,7 +8,7 @@ const stackedSpec = {
     fontSize: 25,
     fontWeight: "bold",
     color: "#000000",
-    subtitle: "Comparing total reviews and rating patterns across Malaysian states",
+    subtitle: "Comparing total reviews and ratings across Malaysian states",
     subtitleFontSize: 16,
     subtitleColor: "#5e5e5e",
     offset: 50
