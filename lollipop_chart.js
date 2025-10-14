@@ -51,8 +51,8 @@ const avgRatingSpec = {
         y: {
           field: "Location",
           type: "nominal",
-          title: null,
-          sort: "ascending"
+          sort: "ascending",
+          axis: { labelAngle: 0, labelFontSize: 14, titleFontSize: 16 }
         },
         x: {
           field: "avg_rating",
@@ -62,8 +62,8 @@ const avgRatingSpec = {
             format: ".2f",
             tickCount: 7,
             labelAngle: 0,
-            labelFontSize: 12,
-            titleFontSize: 14
+            labelFontSize: 14,
+            titleFontSize: 16
           }
         },
         x2: { value: 4.0 },
