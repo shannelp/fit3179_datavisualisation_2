@@ -35,12 +35,16 @@ const stackedSpec = {
     {
       mark: "bar",
       encoding: {
-        x: { field: "Location", type: "nominal", axis: { labelAngle: 30 } },
+        x: {
+          field: "Location",
+          type: "nominal",
+          axis: { labelAngle: 30, labelFontSize: 14, titleFontSize: 16 }
+        },
         y: {
           field: "ReviewCount",
           type: "quantitative",
           title: "Number of Reviews",
-          axis: { format: ",.0f" }
+          axis: { format: ",.0f", labelFontSize: 14, titleFontSize: 16 }
         },
         color: {
           condition: { test: "ratingDropdown != null", value: "#ffc5d3" },
