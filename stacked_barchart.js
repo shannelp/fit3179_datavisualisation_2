@@ -7,10 +7,10 @@ const stackedSpec = {
     anchor: "middle",
     fontSize: 25,
     fontWeight: "bold",
-    color: "#333333",
+    color: "#000000",
     subtitle: "Comparing total reviews and rating patterns across Malaysian states",
     subtitleFontSize: 16,
-    subtitleColor: "#555555",
+    subtitleColor: "#5e5e5e",
     offset: 50
   },
   data: {
@@ -126,7 +126,8 @@ const stackedSpec = {
       encoding: {
         y: { field: "avgPerLocation", type: "quantitative" },
         x: { value: 500 }, // horizontally centered
-        text: { value: "Average Rating Per Location" }
+        text: { value: "Average Rating Per Location" },
+        format: ",.2f"
       }
     }
   ],
