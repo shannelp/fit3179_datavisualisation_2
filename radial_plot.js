@@ -10,7 +10,7 @@ const radialFnbSpec = {
     format: { type: "csv" }
   },
   title: {
-    text: "Food & Beverage Businesses Sizes in Malaysia",
+    text: "Sizes of Food & Beverage Businesses in Malaysia",
     subtitle: "Grouped by the size ranges of 281 businesses",
     fontSize: 25,
     subtitleFontSize: 16,
