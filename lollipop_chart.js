@@ -68,7 +68,7 @@ const avgRatingSpec = {
         },
         x2: { value: 4.0 },
         color: {
-          condition: { test: "datum.isTop", value: "#FFBDBD" },
+          condition: { test: "datum.isTop", value: "#FFD1D1" },
           value: "#cfe8e4"
         }
       }
