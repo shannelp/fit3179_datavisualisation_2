@@ -1,4 +1,4 @@
-// vegalite_stacked.js
+// stacked_barchart.js
 const stackedSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Stacked bar chart of review ratings across locations",
@@ -60,7 +60,7 @@ const stackedSpec = {
         ],
         opacity: {
           condition: { param: "ratingSelect", value: 1 },
-          value: 0.0001
+          value: 0.3
         }
       },
       params: [
