@@ -10,7 +10,7 @@ const radialFnbSpec = {
     format: { type: "csv" }
   },
   title: {
-    text: "Distribution of Food & Beverage Businesses in Malaysia",
+    text: "Food & Beverage Businesses Sizes in Malaysia",
     subtitle: "Grouped by business size range (based on F&B registration points)",
     fontSize: 25,
     subtitleFontSize: 16,
