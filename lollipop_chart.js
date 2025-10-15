@@ -7,7 +7,9 @@ const avgRatingSpec = {
     subtitle: "Comparing mean review scores based on food reviews",
     fontSize: 25,
     subtitleFontSize: 16,
-    anchor: "center"
+    anchor: "center",
+    color: "#000000",
+    subtitleColor: "#5e5e5e"
   },
   data: {
     url: "https://raw.githubusercontent.com/shannelp/vegadata/main/food_ratings.csv",
