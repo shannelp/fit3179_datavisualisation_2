@@ -1,71 +1,89 @@
-/* === Banner Header (template-style, blue theme) === */
-:root{
-  --blue-900:#0f2b46;
-  --blue-800:#20445f;   /* template banner base */
-  --blue-600:#2f5aa6;   /* template "cases" blue */
-  --blue-200:#cfe0f2;
-  --accent:#90c2ff;     /* blue accent for highlighted word */
-  --white:#ffffff;
+:root {
+  --maxw: 1200px;
+  --blue-50: #f6faff;
+  --blue-100: #e9f3ff;
+  --blue-300: #bfdcff;
+  --blue-500: #79aee8;
+  --blue-700: #2a5c99;
+  --blue-900: #1c3b5f;
 }
 
-.hero{
-  /* typography (Poppins from your <head>) */
-  font-family:'Poppins', sans-serif;
-  color:var(--white);
-
-  /* template-like banner background */
-  background:
-    linear-gradient(0deg, rgba(32,68,95,0.88), rgba(32,68,95,0.88)),
-    url("media/webpage_banner.jpg");
-  background-position:center;
-  background-size:cover;
-
-  /* spacing similar to the template banner */
-  padding:28px 24px 30px;
-  text-shadow:1px 1px 0px rgba(0,0,0,0.75);
-  box-shadow:0 2px 12px rgba(0,0,0,0.15);
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+  background: var(--blue-50);
 }
 
-/* small eyebrow line above title */
-.hero-eyebrow{
-  font-weight:700;
-  font-size:14px;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--blue-200);
-  margin-bottom:6px;
+/* === HEADER SECTION === */
+header.hero {
+  background: var(--blue-100);
+  padding: 50px 1rem 40px;
+  text-align: center;
+  max-width: 100%;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
 }
 
-/* big bold title (matches template h1 scale) */
-.hero-title{
-  font-weight:800;
-  font-size:48px;
-  line-height:1.1;
-  margin:5px 0 8px 0;
+.hero-eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  letter-spacing: .5px;
+  font-size: clamp(20px, 3vw, 28px);
+  color: var(--blue-900);
+  margin: 0 0 8px;
 }
 
-/* accent word inside title */
-.hero-title .accent{
-  color:var(--accent);
-  text-shadow:1.5px 1.2px 0px rgba(0,0,0,0.85); /* mirrors template emphasis */
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0;
+  font-size: clamp(36px, 6vw, 60px);
+  color: var(--blue-900);
 }
 
-/* subtitle under title */
-.hero-subtitle{
-  font-weight:600;
-  font-size:18px;
-  max-width:60ch;
-  margin:0;
-  color:var(--white);
-  opacity:0.95;
+.hero-title .accent {
+  color: var(--blue-500);
 }
 
-/* responsive tweaks to keep the banner tidy on small screens */
-@media (max-width:900px){
-  .hero-title{ font-size:40px; }
+.hero-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin: 16px auto 0;
+  font-size: clamp(14px, 2.2vw, 18px);
+  color: #345;
+  max-width: 900px;
+  padding-bottom: 14px;
+  background: linear-gradient(var(--blue-300), var(--blue-300)) center bottom / 200px 4px no-repeat;
 }
-@media (max-width:640px){
-  .hero{ padding:22px 18px 24px; }
-  .hero-title{ font-size:32px; }
-  .hero-subtitle{ font-size:16px; }
+
+/* === VISUALIZATION WRAPPERS === */
+.vis-wrap {
+  max-width: var(--maxw);
+  margin: 40px auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #d8e7f7;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 16px;
+}
+
+/* Vega embeds */
+.vega-embed {
+  width: 100% !important;
+}
+
+/* Centered visuals */
+#radial_fnb, #avg_rating_chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#radial_fnb > div, #avg_rating_chart > div {
+  margin: 0 auto !important;
 }
