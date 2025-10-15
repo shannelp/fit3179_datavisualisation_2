@@ -43,6 +43,7 @@
       font-weight: 700;
       color: #333;
     }
+
     /* Make embeds responsive */
     .vega-embed {
       width: 100% !important;
@@ -55,23 +56,20 @@
       align-items: center;
     }
 
-    /* Ensure Vega embed itself is centered */
     #radial_fnb > div {
       margin: 0 auto !important;
     }
 
     /* Center the lollipop chart */
     #avg_rating_chart {
-    display: flex;
-    justify-content: center;   /* center horizontally */
-    align-items: center;       /* center vertically if taller container */
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-/* Ensure the Vega-Embed child centers too */
     #avg_rating_chart > div {
-    margin: 0 auto !important;
+      margin: 0 auto !important;
     }
-    
   </style>
 </head>
 <body>
@@ -107,10 +105,18 @@
     </div>
   </section>
 
+  <!-- Dual Axis Chart (bottom of page) -->
+  <section class="vis-wrap">
+    <div class="card">
+      <div id="fnb_growth" aria-label="Dual-axis chart of F&B business growth in Malaysia"></div>
+    </div>
+  </section>
+
   <!-- Load your visualisations -->
   <script src="stacked_barchart.js"></script>
   <script src="jittered_map.js"></script>
   <script src="radial_plot.js"></script>
   <script src="lollipop_chart.js"></script>
+  <script src="dualaxis_chart.js"></script>
 </body>
 </html>
