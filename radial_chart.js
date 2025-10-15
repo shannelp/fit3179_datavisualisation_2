@@ -53,8 +53,7 @@ const radialFnbSpec = {
         titleFontSize: 12,
         labelFontSize: 11,
         symbolSize: 70,
-        symbolType: "circle",
-        padding: 30
+        symbolType: "circle"
       }
     },
     opacity: { condition: { param: "sizeSelect", value: 1 }, value: 0.3 },
