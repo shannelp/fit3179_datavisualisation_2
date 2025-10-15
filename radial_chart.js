@@ -21,24 +21,16 @@ const radialFnbSpec = {
   transform: [
     { calculate: "trim(datum.size)", as: "size_clean" },
     { filter: "datum.size_clean && datum.size_clean != '0'" },
-
-    // Replace numeric ranges with formatted ones including commas
     {
-      calculate: "replace(replace(replace(replace(replace(replace(replace(datum.size_clean, '501-1000', '501-1,000'), '1001-5000', '1,001-5,000'), '5001-10000', '5,001-10,000'), '201-500', '201-500'), '51-200', '51-200'), '11-50', '11-50'), '1-10', '1-10')",
+      calculate:
+        "replace(replace(replace(replace(replace(replace(replace(datum.size_clean, '501-1000', '501-1,000'), '1001-5000', '1,001-5,000'), '5001-10000', '5,001-10,000'), '201-500', '201-500'), '51-200', '51-200'), '11-50', '11-50'), '1-10', '1-10')",
       as: "size_label"
     },
-
-    // Aggregate by formatted label
     { aggregate: [{ op: "count", as: "business_count" }], groupby: ["size_label"] }
   ],
 
   encoding: {
-    theta: {
-      field: "business_count",
-      type: "quantitative",
-      stack: true,
-      title: "Number of Businesses"
-    },
+    theta: { field: "business_count", type: "quantitative", stack: true, title: "Number of Businesses" },
     radius: {
       field: "business_count",
       type: "quantitative",
@@ -49,12 +41,11 @@ const radialFnbSpec = {
       field: "size_label",
       type: "nominal",
       title: "Business Size Range",
-      scale: { 
+      scale: {
         domain: ["1-10","11-50","51-200","201-500","501-1,000","1,001-5,000","5,001-10,000"],
         range: ["#EFE7F6","#E3D4F1","#D6C1EC","#C9ADE6","#B996DF","#A580D6","#8F6ACD"]
-    },
-
-      sort: ["1-10", "11-50", "51-200", "201-500", "501-1,000", "1,001-5,000", "5,001-10,000"],
+      },
+      sort: ["1-10","11-50","51-200","201-500","501-1,000","1,001-5,000","5,001-10,000"],
       legend: {
         orient: "top-right",
         direction: "vertical",
@@ -66,10 +57,7 @@ const radialFnbSpec = {
         padding: 4
       }
     },
-    opacity: {
-      condition: { param: "sizeSelect", value: 1 },
-      value: 0.3
-    },
+    opacity: { condition: { param: "sizeSelect", value: 1 }, value: 0.3 },
     tooltip: [
       { field: "size_label", title: "Size Range" },
       { field: "business_count", title: "Businesses" }
@@ -77,21 +65,12 @@ const radialFnbSpec = {
   },
 
   params: [
-    {
-      name: "sizeSelect",
-      select: { type: "point", fields: ["size_label"] },
-      bind: "legend"
-    }
+    { name: "sizeSelect", select: { type: "point", fields: ["size_label"] }, bind: "legend" }
   ],
 
   mark: { type: "arc", innerRadius: 100, stroke: "#fff", opacity: 0.95 },
 
-  config: {
-    view: { stroke: null },
-    background: "white",
-    legend: { titleFontSize: 12, labelFontSize: 11 }
-  }
+  config: { view: { stroke: null }, background: "white", legend: { titleFontSize: 12, labelFontSize: 11 } }
 };
 
-// Mount it into a div with id="radial_fnb"
 vegaEmbed("#radial_fnb", radialFnbSpec, { actions: false }).catch(console.error);
