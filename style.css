@@ -92,6 +92,7 @@
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 28px;
+  color: var(--blue-900);
   line-height: 1.2;
   margin: 0 0 10px 0;
   text-align: left; /* title not justified */
@@ -120,6 +121,7 @@
   width: var(--maxw);
   height: 560px;
   margin: 0 auto;
+  color: var(--blue-900);
   border-radius: 12px;
   position: relative;
   overflow: hidden;
