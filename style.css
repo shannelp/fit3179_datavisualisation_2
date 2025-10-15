@@ -1,81 +1,36 @@
+/* ----- POSTER MODE ----- */
 :root {
-  --maxw: 1200px;
-  --blue-50: #f6faff;
-  --blue-100: #e9f3ff;
-  --blue-300: #bfdcff;
-  --blue-500: #79aee8;
-  --blue-700: #2a5c99;
-  --blue-900: #1c3b5f;
+  --posterw: 1400px;   /* <- pick your exact poster width */
 }
 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-  color: #222;
-  background: var(--blue-50);
+/* allow horizontal scroll if viewport is narrower than poster */
+html, body {
+  width: 100%;
+  overflow-x: auto;
 }
 
-/* === HEADER SECTION === */
+/* header spans the fixed poster width */
 header.hero {
-  background: var(--blue-100);
-  padding: 50px 1rem 40px;
-  text-align: center;
-  max-width: 100%;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  max-width: var(--posterw);
+  margin: 0 auto;
 }
 
-.hero-eyebrow {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  letter-spacing: .5px;
-  font-size: clamp(20px, 3vw, 28px);
-  color: var(--blue-900);
-  margin: 0 0 8px;
-}
-
-.hero-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 900;
-  line-height: 1.05;
-  margin: 0;
-  font-size: clamp(36px, 6vw, 60px);
-  color: var(--blue-900);
-}
-
-.hero-title .accent {
-  color: var(--blue-500);
-}
-
-.hero-subtitle {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  margin: 16px auto 0;
-  font-size: clamp(14px, 2.2vw, 18px);
-  color: #345;
-  max-width: 900px;
-  padding-bottom: 14px;
-  background: linear-gradient(var(--blue-300), var(--blue-300)) center bottom / 200px 4px no-repeat;
-}
-
-/* === VISUALIZATION WRAPPERS === */
+/* each viz section uses the same fixed width; no responsive max */
 .vis-wrap {
-  max-width: var(--maxw);
+  max-width: none;
+  width: var(--posterw);
   margin: 40px auto;
-  padding: 0 1rem;
+  padding: 0 0; /* poster-style edge-to-edge inside the width */
 }
 
-.card {
-  background: #fff;
-  border: 1px solid #d8e7f7;
-  border-radius: 12px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-  padding: 16px;
+/* cards stay the same visual style */
+.card, .card-join {
+  width: 100%;
 }
 
-/* Vega embeds */
-.vega-embed {
-  width: 100% !important;
-}
+/* IMPORTANT: do NOT force Vega embeds to stretch */
+.vega-embed { width: auto !important; }  /* or remove your previous 100% rule */
+
 
 /* Centered visuals */
 #radial_fnb, #avg_rating_chart {
@@ -91,13 +46,14 @@ header.hero {
 
 /* one joined card that holds story (left) + map (right) */
 .card-join {
-  padding: 0;            /* children control their own padding */
-  overflow: hidden;      /* keeps inner divider inside rounded corners */
+  padding: 0;
+  overflow: hidden;
 }
 
 .join-grid {
   display: grid;
-  grid-template-columns: minmax(260px, 1.15fr) 2fr; /* left : right */
+  /* fixed columns (poster-style). adjust to your taste */
+  grid-template-columns: 460px 900px;   /* left : right */
   gap: 0;
   align-items: stretch;
 }
@@ -105,42 +61,23 @@ header.hero {
 /* left column (story) */
 .story {
   padding: 16px 18px;
-  border-right: 1px solid #d8e7f7; /* internal divider */
+  border-right: 1px solid #d8e7f7;
 }
 
 /* right column (map area) */
 .map-box {
+  /* ensure the map area fits your Vega width + legend comfortably */
   padding: 12px;
 }
 
-/* story typography */
-.story-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800;
-  margin: 2px 0 6px;
-  color: var(--blue-900);
-  font-size: clamp(16px, 1.6vw, 20px);
-}
+/* header type */
+.hero-eyebrow { font-size: 24px; }
+.hero-title   { font-size: 60px; }
+.hero-subtitle{ font-size: 18px; }
 
-.story-sub {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  margin: 12px 0 6px;
-  color: #274968;
-  font-size: clamp(14px, 1.4vw, 18px);
-}
-
+/* story type */
+.story-title  { font-size: 20px; }
+.story-sub    { font-size: 18px; }
 .story p,
-.story li {
-  line-height: 1.5;
-  font-size: clamp(12px, 1.2vw, 15px);
-}
+.story li     { font-size: 14px; line-height: 1.5; }
 
-/* responsive: stack on small screens */
-@media (max-width: 960px) {
-  .join-grid { grid-template-columns: 1fr; }
-  .story {
-    border-right: 0;
-    border-bottom: 1px solid #d8e7f7; /* divider on mobile */
-  }
-}
