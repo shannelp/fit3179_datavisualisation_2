@@ -5,7 +5,6 @@ const radialFnbSpec = {
   width: 700,
   height: 700,
   data: {
-    // NOTE: removed "refs/heads" so the CSV loads correctly
     url: "https://raw.githubusercontent.com/shannelp/vegadata/main/malaysia_fnb_points.csv",
     format: { type: "csv" }
   },
@@ -22,7 +21,15 @@ const radialFnbSpec = {
   transform: [
     { calculate: "trim(datum.size)", as: "size_clean" },
     { filter: "datum.size_clean && datum.size_clean != '0'" },
-    { aggregate: [{ op: "count", as: "business_count" }], groupby: ["size_clean"] }
+
+    // ✅ Replace numeric ranges with formatted ones including commas
+    {
+      calculate: "replace(replace(replace(replace(replace(replace(replace(datum.size_clean, '501-1000', '501-1,000'), '1001-5000', '1,001-5,000'), '5001-10000', '5,001-10,000'), '201-500', '201-500'), '51-200', '51-200'), '11-50', '11-50'), '1-10', '1-10')",
+      as: "size_label"
+    },
+
+    // ✅ Aggregate by formatted label
+    { aggregate: [{ op: "count", as: "business_count" }], groupby: ["size_label"] }
   ],
 
   encoding: {
@@ -39,11 +46,11 @@ const radialFnbSpec = {
       title: "Relative Size"
     },
     color: {
-      field: "size_clean",
+      field: "size_label",
       type: "nominal",
       title: "Business Size Range",
       scale: { scheme: "pastel2" },
-      sort: ["1-10", "11-50", "51-200", "201-500", "501-1000", "1001-5000", "5001-10000"],
+      sort: ["1-10", "11-50", "51-200", "201-500", "501-1,000", "1,001-5,000", "5,001-10,000"],
       legend: {
         orient: "top-right",
         direction: "vertical",
@@ -60,7 +67,7 @@ const radialFnbSpec = {
       value: 0.3
     },
     tooltip: [
-      { field: "size_clean", title: "Size range" },
+      { field: "size_label", title: "Size Range" },
       { field: "business_count", title: "Businesses" }
     ]
   },
@@ -68,7 +75,7 @@ const radialFnbSpec = {
   params: [
     {
       name: "sizeSelect",
-      select: { type: "point", fields: ["size_clean"] },
+      select: { type: "point", fields: ["size_label"] },
       bind: "legend"
     }
   ],
