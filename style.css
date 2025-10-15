@@ -1,0 +1,89 @@
+:root {
+  --maxw: 1200px;
+  --blue-50: #f6faff;
+  --blue-100: #e9f3ff;
+  --blue-300: #bfdcff;
+  --blue-500: #79aee8;
+  --blue-700: #2a5c99;
+  --blue-900: #1c3b5f;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #222;
+  background: var(--blue-50);
+}
+
+/* === HEADER SECTION === */
+header.hero {
+  background: var(--blue-100);
+  padding: 50px 1rem 40px;
+  text-align: center;
+  max-width: 100%;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+
+.hero-eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  letter-spacing: .5px;
+  font-size: clamp(20px, 3vw, 28px);
+  color: var(--blue-900);
+  margin: 0 0 8px;
+}
+
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0;
+  font-size: clamp(36px, 6vw, 60px);
+  color: var(--blue-900);
+}
+
+.hero-title .accent {
+  color: var(--blue-500);
+}
+
+.hero-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin: 16px auto 0;
+  font-size: clamp(14px, 2.2vw, 18px);
+  color: #345;
+  max-width: 900px;
+  padding-bottom: 14px;
+  background: linear-gradient(var(--blue-300), var(--blue-300)) center bottom / 200px 4px no-repeat;
+}
+
+/* === VISUALIZATION WRAPPERS === */
+.vis-wrap {
+  max-width: var(--maxw);
+  margin: 40px auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #d8e7f7;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 16px;
+}
+
+/* Vega embeds */
+.vega-embed {
+  width: 100% !important;
+}
+
+/* Centered visuals */
+#radial_fnb, #avg_rating_chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#radial_fnb > div, #avg_rating_chart > div {
+  margin: 0 auto !important;
+}
