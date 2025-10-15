@@ -26,10 +26,32 @@
     <p class="hero-subtitle">Exploring reviews, business growth, and regional F&B trends through data visualisation</p>
   </header>
 
-  <!-- Map -->
-  <section class="vis-wrap">
-    <div class="card">
-      <div id="fnb_map" aria-label="Map of F&B businesses in Malaysia"></div>
+  <section class="split-wrap">
+    <div class="split">
+      <!-- LEFT: Storytelling panel -->
+      <aside class="panel story">
+        <h2 class="story-title">What the Map Shows</h2>
+        <p>
+          This map plots <strong>281 F&amp;B establishments</strong> across Malaysia.
+          Use the legend to highlight a region and compare its footprint to the rest.
+        </p>
+        <ul>
+          <li><strong>Urban hubs</strong> (e.g., Kuala Lumpur, Penang) show denser clusters.</li>
+          <li><strong>East Malaysia</strong> has fewer but growing nodes along key corridors.</li>
+          <li>Hover points for the business name and locality.</li>
+        </ul>
+  
+        <h3 class="story-sub">How to read it</h3>
+        <p>
+          Each dot represents an establishment. Grid lines help approximate latitude/longitude,
+          while the outline is fixed—no reflow—so spatial comparisons remain consistent.
+        </p>
+      </aside>
+  
+      <!-- RIGHT: Map -->
+      <div class="panel">
+        <div id="fnb_map" aria-label="Map of F&B businesses in Malaysia"></div>
+      </div>
     </div>
   </section>
 
