@@ -11,101 +11,50 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.0.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.23.0"></script>
 
-  <style>
-    :root { --maxw: 1200px; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      color: #222;
-      background: #fafafa;
-    }
-    header {
-      padding: 1rem 1rem 0.5rem;
-      max-width: var(--maxw);
-      margin: 0 auto;
-      text-align: center; 
-    }
-    .vis-wrap {
-      max-width: var(--maxw);
-      margin: 0 auto 28px;
-      padding: 0 1rem;
-    }
-    .card {
-      background: #fff;
-      border: 1px solid #e6e6e6;
-      border-radius: 12px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.04);
-      padding: 14px;
-    }
-    .title {
-      margin: 0 0 10px;
-      font-size: 50px;
-      font-weight: 700;
-      color: #333;
-    }
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-    /* Make embeds responsive */
-    .vega-embed {
-      width: 100% !important;
-    }
-
-    /* Center the radial chart */
-    #radial_fnb {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #radial_fnb > div {
-      margin: 0 auto !important;
-    }
-
-    /* Center the lollipop chart */
-    #avg_rating_chart {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #avg_rating_chart > div {
-      margin: 0 auto !important;
-    }
-  </style>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1 class="title">From Plates to Patterns: Food Reviews and F&B Businesses across Malaysia</h1>
+  <!-- HEADER -->
+  <header class="hero">
+    <div class="hero-eyebrow">From Plates to Patterns</div>
+    <h1 class="hero-title">Food Reviews and F&amp;B Businesses across <span class="accent">Malaysia</span></h1>
+    <p class="hero-subtitle">Comparing total reviews and ratings across Malaysian states</p>
   </header>
 
-  <!-- Stacked bar chart (top of page) -->
+  <!-- Stacked bar chart -->
   <section class="vis-wrap">
     <div class="card">
       <div id="stacked_chart" aria-label="Stacked bar chart of ratings"></div>
     </div>
   </section>
 
-  <!-- Map (middle of page) -->
+  <!-- Map -->
   <section class="vis-wrap">
     <div class="card">
       <div id="fnb_map" aria-label="Map of F&B businesses in Malaysia"></div>
     </div>
   </section>
 
-  <!-- Radial plot (bottom middle of page) -->
+  <!-- Radial plot -->
   <section class="vis-wrap">
     <div class="card">
       <div id="radial_fnb" aria-label="Radial chart of F&B business size distribution"></div>
     </div>
   </section>
 
-  <!-- Average Rating Lollipop Chart (bottom of page) -->
+  <!-- Average Rating Lollipop Chart -->
   <section class="vis-wrap">
     <div class="card">
       <div id="avg_rating_chart" aria-label="Average customer ratings across Malaysian locations"></div>
     </div>
   </section>
 
-  <!-- Dual Axis Chart (bottom of page) -->
+  <!-- Dual Axis Chart -->
   <section class="vis-wrap">
     <div class="card">
       <div id="fnb_growth" aria-label="Dual-axis chart of F&B business growth in Malaysia"></div>
