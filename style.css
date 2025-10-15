@@ -23,7 +23,7 @@
   font-family: 'Poppins', sans-serif;
   color: var(--blue-900);
   background-color: var(--blue-100);
-  width: 1110; /* same width as rest */
+  width: var(--maxw); /* same width as rest */
   margin: 40px auto;
   padding: 28px 24px 30px;
 
@@ -109,19 +109,13 @@
   hyphens: auto;
 }
 
-.storytelling p.last-line {
-  margin-top: 12px;
-  padding-top: 8px;
-  border-top: 1px dashed var(--blue-300);
-}
-
 /* === MAP AREA === */
 .story-map {
   display: block;
   width: var(--maxw);
   height: 560px;
   margin: 0 auto;
-  color: var(--blue-900);
+  background: var(--blue-50);
   border-radius: 12px;
   position: relative;
   overflow: hidden;
