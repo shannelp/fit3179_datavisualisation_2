@@ -26,9 +26,11 @@
     <p class="hero-subtitle">Comparing reviews and growth of F&B sectors</p>
   </header>
 
-  <!-- Map + Storytelling Container -->
+  <!-- SINGLE CONTAINER WRAPS ALL CONTENT BELOW THE HERO -->
   <section class="vis-wrap">
-    <article class="card story-card" aria-labelledby="story-title">
+    <article class="card unified" aria-labelledby="story-title">
+  
+      <!-- Intro story (title NOT justified, paragraphs justified) -->
       <header class="storytelling" role="doc-introduction">
         <h2 id="story-title">Mapping Malaysia’s Culinary Landscape</h2>
         <p>This map shows 281 food businesses across Malaysia. Kuala Lumpur,</p>
@@ -42,30 +44,41 @@
         <p>Together, they form Malaysia’s vibrant, ever-evolving foodscape.</p>
       </header>
   
-      <!-- Map sits directly below the storytelling -->
+      <!-- Map -->
       <div id="fnb_map" class="story-map" aria-label="Map of F&B businesses in Malaysia"></div>
+  
+      <!-- Lollipop grid (left = chart, right = story) -->
+      <section class="block lollipop-split" aria-labelledby="lollipop-story-title">
+        <div id="avg_rating_chart" aria-label="Average customer ratings across Malaysian locations"></div>
+        <header class="storytelling slim">
+          <h2 id="lollipop-story-title">Where Are Ratings Highest?</h2>
+          <p>Penang records the highest average food rating, among</p>
+          <p>Malaysian cities, while Langkawi and Kuala Lumpur</p>
+          <p>follow closely. Despite minor regional differences,</p>
+          <p>all locations score above 4.0, highlighting Malaysia’s</p>
+          <p>strong culinary standards and customer satisfaction nationwide.</p>
+        </header>
+      </section>
+  
+    <section class="vis-wrap lollipop-split">
+    <!-- Left: lollipop chart -->
+    <div class="card lollipop-card">
+      <div id="avg_rating_chart" aria-label="Average customer ratings across Malaysian locations"></div>
+    </div>
+  
+    <!-- Right: storytelling (uses your existing .storytelling styles) -->
+    <article class="card story-card lollipop-story" aria-labelledby="lollipop-story-title">
+      <header class="storytelling">
+        <h2 id="lollipop-story-title">Where Are Ratings Highest?</h2>
+        <p>Penang records the highest average food rating, among</p>
+        <p>Malaysian cities, while Langkawi and Kuala Lumpur</p>
+        <p>follow closely. Despite minor regional differences,</p>
+        <p>all locations score above 4.0, highlighting Malaysia’s</p>
+        <p>strong culinary standards and customer satisfaction nationwide.</p>
+        <p></p>
+      </header>
     </article>
   </section>
-
-  <section class="vis-wrap lollipop-split">
-  <!-- Left: lollipop chart -->
-  <div class="card lollipop-card">
-    <div id="avg_rating_chart" aria-label="Average customer ratings across Malaysian locations"></div>
-  </div>
-
-  <!-- Right: storytelling (uses your existing .storytelling styles) -->
-  <article class="card story-card lollipop-story" aria-labelledby="lollipop-story-title">
-    <header class="storytelling">
-      <h2 id="lollipop-story-title">Where Are Ratings Highest?</h2>
-      <p>Penang records the highest average food rating, among</p>
-      <p>Malaysian cities, while Langkawi and Kuala Lumpur</p>
-      <p>follow closely. Despite minor regional differences,</p>
-      <p>all locations score above 4.0, highlighting Malaysia’s</p>
-      <p>strong culinary standards and customer satisfaction nationwide.</p>
-      <p></p>
-    </header>
-  </article>
-</section>
 
   <!-- Stacked bar chart -->
   <section class="vis-wrap">
