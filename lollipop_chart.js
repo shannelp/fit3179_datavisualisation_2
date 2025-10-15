@@ -34,7 +34,7 @@ const avgRatingSpec = {
     { calculate: "abs(datum.avg_rating - datum.max_avg) < 1e-6", as: "isTop" }
   ],
   height: 400,
-  width: 600,
+  width: 400,
   layer: [
     {
       mark: { type: "text", align: "left", baseline: "bottom", dx: 6, dy: -6, fontSize: 12, color: "#032223" },
