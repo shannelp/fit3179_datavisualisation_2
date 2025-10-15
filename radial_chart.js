@@ -2,8 +2,8 @@
 const radialFnbSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Compact radial chart of the distribution of 281 F&B Businesses",
-  width: 700,
-  height: 700,
+  width: "container",
+  height: 600,
   data: {
     url: "https://raw.githubusercontent.com/shannelp/vegadata/main/malaysia_fnb_points.csv",
     format: { type: "csv" }
@@ -47,14 +47,14 @@ const radialFnbSpec = {
       },
       sort: ["1-10","11-50","51-200","201-500","501-1,000","1,001-5,000","5,001-10,000"],
       legend: {
-        orient: "top-right",
+        orient: "top-left",
         direction: "vertical",
         columns: 1,
         titleFontSize: 12,
         labelFontSize: 11,
         symbolSize: 70,
         symbolType: "circle",
-        padding: 4
+        padding: 30
       }
     },
     opacity: { condition: { param: "sizeSelect", value: 1 }, value: 0.3 },
