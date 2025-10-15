@@ -72,7 +72,7 @@ const malaysiaFnbGrowthSpec = {
         color: {
           field: "type",
           type: "nominal",
-          scale: { domain: ["Cumulative Businesses Founded"], range: ["lightpink"] },
+          scale: { domain: ["Cumulative Businesses"], range: ["lightpink"] },
           legend: { title: "Metric" }
         },
         tooltip: [
