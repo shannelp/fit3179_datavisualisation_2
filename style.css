@@ -84,6 +84,52 @@ header.hero {
   align-items: center;
 }
 
+/* Split layout for story (left) + map (right) */
+.split-wrap {
+  max-width: var(--maxw);
+  margin: 40px auto;
+  padding: 0 1rem;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* left : right */
+  gap: 18px;
+  align-items: stretch;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #d8e7f7;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  padding: 16px 18px;
+}
+
+.story-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  margin: 2px 0 6px;
+  color: var(--blue-900);
+}
+
+.story-sub {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin: 14px 0 6px;
+  color: #274968;
+}
+
+.story p, .story li {
+  line-height: 1.55;
+}
+
+/* Stack on small screens */
+@media (max-width: 960px) {
+  .split { grid-template-columns: 1fr; }
+  .panel { padding: 14px; }
+}
+
 #radial_fnb > div, #avg_rating_chart > div {
   margin: 0 auto !important;
 }
