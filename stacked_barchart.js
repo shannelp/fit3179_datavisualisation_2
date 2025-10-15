@@ -18,6 +18,20 @@ const stackedSpec = {
   },
   width: "container",
   height: 480,
+
+  // ✅ Add this transform to rename abbreviations
+  transform: [
+    { filter: "!ratingDropdown || toNumber(datum.Rating) == ratingDropdown" },
+    {
+      calculate: "replace(replace(datum.Location, 'JB', 'Johor Bahru'), 'KL', 'Kuala Lumpur')",
+      as: "LocationFull"
+    },
+    {
+      aggregate: [{ op: 'count', as: 'ReviewCount' }],
+      groupby: ['LocationFull', 'Rating']
+    }
+  ],
+
   params: [
     {
       name: "ratingDropdown",
@@ -30,15 +44,16 @@ const stackedSpec = {
       }
     }
   ],
+
   layer: [
     // --- Main stacked bars ---
     {
       mark: "bar",
       encoding: {
         x: {
-          field: "Location",
+          field: "LocationFull",
           type: "nominal",
-          axis: { labelAngle: 30, labelFontSize: 14, titleFontSize: 16 }
+          axis: { labelAngle: 30, labelFontSize: 14, titleFontSize: 16, title: "Location" }
         },
         y: {
           field: "ReviewCount",
@@ -54,7 +69,7 @@ const stackedSpec = {
           scale: { scheme: "pastel1" }
         },
         tooltip: [
-          { field: "Location", title: "Location" },
+          { field: "LocationFull", title: "Location" },
           { field: "Rating", title: "Rating" },
           { field: "ReviewCount", title: "Number of Reviews", format: "," }
         ],
@@ -78,29 +93,15 @@ const stackedSpec = {
         {
           aggregate: [
             { op: "sum", field: "ReviewCount", as: "totalReviews" },
-            { op: "distinct", field: "Location", as: "numLocations" }
+            { op: "distinct", field: "LocationFull", as: "numLocations" }
           ]
         },
-        {
-          calculate: "datum.totalReviews / datum.numLocations",
-          as: "avgPerLocation"
-        }
+        { calculate: "datum.totalReviews / datum.numLocations", as: "avgPerLocation" }
       ],
-      mark: {
-        type: "rule",
-        color: "#6ac293",
-        strokeDash: [5, 3],
-        strokeWidth: 2
-      },
+      mark: { type: "rule", color: "#6ac293", strokeDash: [5, 3], strokeWidth: 2 },
       encoding: {
         y: { field: "avgPerLocation", type: "quantitative" },
-        tooltip: [
-          {
-            field: "avgPerLocation",
-            title: "Average Value",
-            format: ",.2f"
-          }
-        ]
+        tooltip: [{ field: "avgPerLocation", title: "Average Value", format: ",.2f" }]
       }
     },
 
@@ -110,13 +111,10 @@ const stackedSpec = {
         {
           aggregate: [
             { op: "sum", field: "ReviewCount", as: "totalReviews" },
-            { op: "distinct", field: "Location", as: "numLocations" }
+            { op: "distinct", field: "LocationFull", as: "numLocations" }
           ]
         },
-        {
-          calculate: "datum.totalReviews / datum.numLocations",
-          as: "avgPerLocation"
-        }
+        { calculate: "datum.totalReviews / datum.numLocations", as: "avgPerLocation" }
       ],
       mark: {
         type: "text",
@@ -129,24 +127,17 @@ const stackedSpec = {
       },
       encoding: {
         y: { field: "avgPerLocation", type: "quantitative" },
-        x: { value: 500 }, // horizontally centered
-        text: { value: "Average Review Count Per Location" },
-        format: ",.2f"
+        x: { value: 500 },
+        text: { value: "Average Review Count Per Location" }
       }
     }
   ],
+
   config: {
     view: { stroke: null },
     legend: { orient: "right" },
     axis: { grid: false }
-  },
-  transform: [
-    { filter: "!ratingDropdown || toNumber(datum.Rating) == ratingDropdown" },
-    {
-      aggregate: [{ op: "count", as: "ReviewCount" }],
-      groupby: ["Location", "Rating"]
-    }
-  ]
+  }
 };
 
 vegaEmbed("#stacked_chart", stackedSpec, { actions: false }).catch(console.error);
