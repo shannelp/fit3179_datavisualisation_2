@@ -1,10 +1,12 @@
-/* === Banner Header (Fixed-Width Light Blue Theme) === */
+/* === Banner Header (Fixed-Width Pastel Blue Theme) === */
 :root {
-  --blue-900: #3a5a80;
-  --blue-800: #5b7fa6;   /* soft medium pastel blue */
-  --blue-600: #8fb8e1;   /* lighter pastel shade */
-  --blue-200: #d8e8f8;   /* very light background blue */
-  --accent: #a3d4ff;     /* light sky blue accent */
+  --maxw: 1200px;
+  --blue-50: #f6faff;
+  --blue-100: #e9f3ff;
+  --blue-300: #bfdcff;
+  --blue-500: #79aee8;
+  --blue-700: #2a5c99;
+  --blue-900: #1c3b5f;
   --white: #ffffff;
 }
 
@@ -13,15 +15,15 @@
   font-family: 'Poppins', sans-serif;
   color: var(--blue-900);
 
-  /* pastel background */
-  background-color: var(--blue-200);
+  /* light pastel background */
+  background-color: var(--blue-100);
 
   /* fixed box dimensions and positioning */
   width: 900px;
   margin: 40px auto; /* center on page with top spacing */
   padding: 28px 24px 30px;
 
-  text-shadow: none; /* softer look for pastel theme */
+  text-shadow: none; /* clean look for pastel design */
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   text-align: center;
@@ -33,7 +35,7 @@
   font-size: 14px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--blue-600);
+  color: var(--blue-700);
   margin-bottom: 6px;
 }
 
@@ -48,7 +50,7 @@
 
 /* Highlighted word in title */
 .hero-title .accent {
-  color: var(--blue-800);
+  color: var(--blue-500);
 }
 
 /* Subtitle below title */
@@ -57,8 +59,11 @@
   font-size: 18px;
   max-width: 60ch;
   margin: 0 auto;
-  color: var(--blue-800);
+  color: var(--blue-700);
   opacity: 0.95;
-}
 
+  /* optional underline effect matching your main layout */
+  background: linear-gradient(var(--blue-300), var(--blue-300)) 
+              center bottom / 200px 4px no-repeat;
+  padding-bottom: 10px;
 }
