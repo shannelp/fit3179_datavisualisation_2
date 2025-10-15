@@ -173,11 +173,3 @@ body {
 .card.unified {
   overflow: hidden;
 }
-
-/* Responsive: stack on small screens */
-@media (max-width: 900px) {
-  .vis-wrap.lollipop-split {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-}
