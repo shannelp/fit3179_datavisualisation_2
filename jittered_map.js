@@ -11,7 +11,7 @@ const malaysiaFnbMap = {
     color: "#000000",
     subtitleColor: "#5e5e5e"
   },
-  width: 800,
+  width: 810,
   height: 600,
   projection: { type: "mercator", center: [109.4, 4], scale: 2300, translate: [410, 285]},  // half of width/height-ish; keeps the map locked 
 
