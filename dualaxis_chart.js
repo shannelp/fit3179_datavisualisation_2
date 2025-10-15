@@ -72,7 +72,7 @@ const malaysiaFnbGrowthSpec = {
         color: {
           field: "type",
           type: "nominal",
-          scale: { domain: ["Cumulative Businesses"], range: ["#8D5F8C"] },
+          scale: { domain: ["Cumulative Businesses"], range: ["#898AC4"] },
           legend: { title: "Metric" }
         },
         tooltip: [
@@ -107,7 +107,7 @@ const malaysiaFnbGrowthSpec = {
         color: {
           field: "type",
           type: "nominal",
-          scale: { domain: ["Businesses Founded That Year"], range: ["#86A67E"] },
+          scale: { domain: ["Businesses Founded That Year"], range: ["#819A91"] },
           legend: { title: "" }
         },
         tooltip: [
