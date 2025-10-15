@@ -61,3 +61,67 @@
               center bottom / 200px 4px no-repeat;
   padding-bottom: 10px;
 }
+
+/* --- Shared layout (optional, if not defined yet) --- */
+.vis-wrap {
+  max-width: var(--maxw);
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Storytelling + Map container --- */
+.story-card {
+  padding: 0; /* storytelling section handles its own padding; map fills width */
+  overflow: hidden;
+}
+
+/* Top storytelling panel */
+.storytelling {
+  background: var(--blue-50);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 22px 28px;
+}
+
+.storytelling h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.2;
+  margin: 0 0 10px 0;
+  color: var(--blue-900);           /* dark blue title */
+}
+
+.storytelling p {
+  margin: 8px 0;
+  color: var(--blue-700);           /* mid-blue body */
+  font-weight: 600;
+  text-align: justify;             
+  text-justify: inter-word;     
+}
+
+/* Optional: readability improvement on smaller screens */
+@media (max-width: 600px) {
+  .storytelling p {
+    text-align: left;               /* easier to read on mobile */
+  }
+}
+
+.storytelling p.last-line {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--blue-300);
+}
+
+/* Map area below storytelling */
+.story-map {
+  width: 100%;
+  height: 560px;                    /* adjust as you like */
+  background: var(--blue-100);      /* light blue behind the map while loading */
+}
+
