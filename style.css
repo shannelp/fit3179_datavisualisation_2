@@ -128,3 +128,45 @@
   height: 100%;
   margin: 0 auto;
 }
+
+/* Wrap the lollipop section in two columns:
+   left = chart, right = storytelling */
+.lollipop-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.9fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* Card styling for the chart panel */
+.card.lollipop-card {
+  background: #ffffff;              /* white background as requested */
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  padding: 20px 22px;
+}
+
+/* Ensure the Vega container itself inherits white and has room */
+#avg_rating_chart {
+  background: #ffffff;              /* double-ensure white inside the embed */
+  width: 100%;
+  min-height: 420px;                /* adjust if your chart is taller */
+}
+
+/* Optional: keep the chart flush-left, no stray margins from embeds */
+#avg_rating_chart > div,
+#avg_rating_chart .vega-embed,
+#avg_rating_chart canvas,
+#avg_rating_chart svg {
+  margin: 0 !important;
+}
+
+/* Storytelling panel on the right
+   (uses your existing typography scale) */
+.lollipop-story.story-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  padding: 20px 22px;
+}
+
