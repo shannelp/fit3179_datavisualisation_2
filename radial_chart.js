@@ -1,4 +1,4 @@
-// radial_plot.js
+// radial_chart.js
 const radialFnbSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Compact radial chart of the distribution of 281 F&B Businesses",
@@ -22,13 +22,13 @@ const radialFnbSpec = {
     { calculate: "trim(datum.size)", as: "size_clean" },
     { filter: "datum.size_clean && datum.size_clean != '0'" },
 
-    // ✅ Replace numeric ranges with formatted ones including commas
+    // Replace numeric ranges with formatted ones including commas
     {
       calculate: "replace(replace(replace(replace(replace(replace(replace(datum.size_clean, '501-1000', '501-1,000'), '1001-5000', '1,001-5,000'), '5001-10000', '5,001-10,000'), '201-500', '201-500'), '51-200', '51-200'), '11-50', '11-50'), '1-10', '1-10')",
       as: "size_label"
     },
 
-    // ✅ Aggregate by formatted label
+    // Aggregate by formatted label
     { aggregate: [{ op: "count", as: "business_count" }], groupby: ["size_label"] }
   ],
 
@@ -49,7 +49,9 @@ const radialFnbSpec = {
       field: "size_label",
       type: "nominal",
       title: "Business Size Range",
-      scale: { scheme: "pastel2" },
+      scale: { domain: ["1-10","11-50","51-200","201-500","501-1,000","1,001-5,000","5,001-10,000"], range: ["#EFE7F6","#E3D4F1","#D6C1EC","#C9ADE6","#B996DF","#A580D6","#8F6ACD"]
+}
+
       sort: ["1-10", "11-50", "51-200", "201-500", "501-1,000", "1,001-5,000", "5,001-10,000"],
       legend: {
         orient: "top-right",
