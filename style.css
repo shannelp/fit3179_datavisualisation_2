@@ -1,30 +1,29 @@
-/* === Banner Header (Fixed-Width Blue Theme) === */
+/* === Banner Header (Fixed-Width Light Blue Theme) === */
 :root {
-  --blue-900: #0f2b46;
-  --blue-800: #20445f;   /* template banner base */
-  --blue-600: #2f5aa6;   /* template "cases" blue */
-  --blue-200: #cfe0f2;
-  --accent: #90c2ff;     /* blue accent for highlighted word */
+  --blue-900: #3a5a80;
+  --blue-800: #5b7fa6;   /* soft medium pastel blue */
+  --blue-600: #8fb8e1;   /* lighter pastel shade */
+  --blue-200: #d8e8f8;   /* very light background blue */
+  --accent: #a3d4ff;     /* light sky blue accent */
   --white: #ffffff;
 }
 
 /* === Hero Banner === */
 .hero {
   font-family: 'Poppins', sans-serif;
-  color: var(--white);
+  color: var(--blue-900);
 
-  /* solid background only (no image) */
-  background-color: var(--blue-800);
+  /* pastel background */
+  background-color: var(--blue-200);
 
   /* fixed box dimensions and positioning */
   width: 900px;
   margin: 40px auto; /* center on page with top spacing */
   padding: 28px 24px 30px;
 
-  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  text-shadow: none; /* softer look for pastel theme */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-
   text-align: center;
 }
 
@@ -34,7 +33,7 @@
   font-size: 14px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--blue-200);
+  color: var(--blue-600);
   margin-bottom: 6px;
 }
 
@@ -44,12 +43,12 @@
   font-size: 48px;
   line-height: 1.1;
   margin: 5px 0 8px 0;
+  color: var(--blue-900);
 }
 
 /* Highlighted word in title */
 .hero-title .accent {
-  color: var(--accent);
-  text-shadow: 1.5px 1.2px 0px rgba(0, 0, 0, 0.85);
+  color: var(--blue-800);
 }
 
 /* Subtitle below title */
@@ -58,6 +57,8 @@
   font-size: 18px;
   max-width: 60ch;
   margin: 0 auto;
-  color: var(--white);
+  color: var(--blue-800);
   opacity: 0.95;
+}
+
 }
