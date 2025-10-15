@@ -89,48 +89,58 @@ header.hero {
 }
 
 
-/* Split layout for story (left) + map (right) */
-.split-wrap {
-  max-width: var(--maxw);
-  margin: 40px auto;
-  padding: 0 1rem;
+/* one joined card that holds story (left) + map (right) */
+.card-join {
+  padding: 0;            /* children control their own padding */
+  overflow: hidden;      /* keeps inner divider inside rounded corners */
 }
 
-.split {
+.join-grid {
   display: grid;
-  grid-template-columns: 1fr 2fr; /* left : right */
-  gap: 18px;
+  grid-template-columns: minmax(260px, 1.15fr) 2fr; /* left : right */
+  gap: 0;
   align-items: stretch;
 }
 
-.panel {
-  background: #fff;
-  border: 1px solid #d8e7f7;
-  border-radius: 12px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+/* left column (story) */
+.story {
   padding: 16px 18px;
+  border-right: 1px solid #d8e7f7; /* internal divider */
 }
 
+/* right column (map area) */
+.map-box {
+  padding: 12px;
+}
+
+/* story typography */
 .story-title {
   font-family: 'Poppins', sans-serif;
   font-weight: 800;
   margin: 2px 0 6px;
   color: var(--blue-900);
+  font-size: clamp(16px, 1.6vw, 20px);
 }
 
 .story-sub {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  margin: 14px 0 6px;
+  margin: 12px 0 6px;
   color: #274968;
+  font-size: clamp(14px, 1.4vw, 18px);
 }
 
-.story p, .story li {
-  line-height: 1.55;
+.story p,
+.story li {
+  line-height: 1.5;
+  font-size: clamp(12px, 1.2vw, 15px);
 }
 
-/* Stack on small screens */
+/* responsive: stack on small screens */
 @media (max-width: 960px) {
-  .split { grid-template-columns: 1fr; }
-  .panel { padding: 14px; }
+  .join-grid { grid-template-columns: 1fr; }
+  .story {
+    border-right: 0;
+    border-bottom: 1px solid #d8e7f7; /* divider on mobile */
+  }
 }
