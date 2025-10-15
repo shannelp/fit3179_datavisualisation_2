@@ -19,18 +19,18 @@
 </head>
 
 <body>
-  <!-- HEADER -->
+  <!-- HEADER (same fixed width as content) -->
   <header class="hero">
     <div class="hero-eyebrow">From Plates to Patterns</div>
-    <h1 class="hero-title">Insights from Food Ratings and F&B Business Data across <span class="accent">Malaysia</span></h1>
-    <p class="hero-subtitle">Comparing reviews and growth of F&B sectors</p>
+    <h1 class="hero-title">Insights from Food Ratings and F&amp;B Business Data across <span class="accent">Malaysia</span></h1>
+    <p class="hero-subtitle">Comparing reviews and growth of F&amp;B sectors</p>
   </header>
 
-  <!-- SINGLE CONTAINER WRAPS ALL CONTENT BELOW THE HERO -->
+  <!-- ONE unified container for everything below -->
   <section class="vis-wrap">
     <article class="card unified" aria-labelledby="story-title">
-  
-      <!-- Intro story (title NOT justified, paragraphs justified) -->
+
+      <!-- Intro story -->
       <header class="storytelling" role="doc-introduction">
         <h2 id="story-title">Mapping Malaysia’s Culinary Landscape</h2>
         <p>This map shows 281 food businesses across Malaysia. Kuala Lumpur,</p>
@@ -43,10 +43,10 @@
         <p>Geography as well as economy shape where flavours come alive.</p>
         <p>Together, they form Malaysia’s vibrant, ever-evolving foodscape.</p>
       </header>
-  
+
       <!-- Map -->
-      <div id="fnb_map" class="story-map" aria-label="Map of F&B businesses in Malaysia"></div>
-  
+      <div id="fnb_map" class="story-map" aria-label="Map of F&amp;B businesses in Malaysia"></div>
+
       <!-- Lollipop grid (left = chart, right = story) -->
       <section class="block lollipop-split" aria-labelledby="lollipop-story-title">
         <div id="avg_rating_chart" aria-label="Average customer ratings across Malaysian locations"></div>
@@ -59,35 +59,26 @@
           <p>strong culinary standards and customer satisfaction nationwide.</p>
         </header>
       </section>
-  
-    <section class="vis-wrap lollipop-split">
-    <!-- Left: lollipop chart -->
-    <div class="card lollipop-card">
-      <div id="avg_rating_chart" aria-label="Average customer ratings across Malaysian locations"></div>
-    </div>
 
-  <!-- Stacked bar chart -->
-  <section class="vis-wrap">
-    <div class="card">
-      <div id="stacked_chart" aria-label="Stacked bar chart of ratings"></div>
-    </div>
+      <!-- Stacked bar -->
+      <section class="block">
+        <div id="stacked_chart" class="chart-block" aria-label="Stacked bar chart of ratings"></div>
+      </section>
+
+      <!-- Radial -->
+      <section class="block">
+        <div id="radial_fnb" class="chart-block" aria-label="Radial chart of F&amp;B business size distribution"></div>
+      </section>
+
+      <!-- Dual Axis -->
+      <section class="block">
+        <div id="fnb_growth" class="chart-block" aria-label="Dual-axis chart of F&amp;B business growth in Malaysia"></div>
+      </section>
+
+    </article>
   </section>
 
-  <!-- Radial plot -->
-  <section class="vis-wrap">
-    <div class="card">
-      <div id="radial_fnb" aria-label="Radial chart of F&B business size distribution"></div>
-    </div>
-  </section>
-
-  <!-- Dual Axis Chart -->
-  <section class="vis-wrap">
-    <div class="card">
-      <div id="fnb_growth" aria-label="Dual-axis chart of F&B business growth in Malaysia"></div>
-    </div>
-  </section>
-
-  <!-- Load your visualisations -->
+  <!-- Visualisations -->
   <script src="stacked_barchart.js"></script>
   <script src="jittered_map.js"></script>
   <script src="radial_chart.js"></script>
