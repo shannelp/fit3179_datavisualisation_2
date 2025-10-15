@@ -23,7 +23,7 @@
   font-family: 'Poppins', sans-serif;
   color: var(--blue-900);
   background-color: var(--blue-100);
-  width: var(--maxw); /* same width as rest */
+  width: 1110; /* same width as rest */
   margin: 40px auto;
   padding: 28px 24px 30px;
 
