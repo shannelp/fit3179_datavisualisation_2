@@ -107,7 +107,7 @@ const malaysiaFnbGrowthSpec = {
         color: {
           field: "type",
           type: "nominal",
-          scale: { domain: ["Businesses Founded That Year"], range: ["#BADEB4"] },
+          scale: { domain: ["Businesses Founded That Year"], range: ["#9DB398"] },
           legend: { title: "" }
         },
         tooltip: [
