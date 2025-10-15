@@ -104,7 +104,7 @@
   height: 560px;
   margin: 0 auto;
   background: var(--blue-50);
-  border-bottom: 1px solid rgba(0,0,0,.06);
+  
 }
 .story-map > * {
   display: block;
