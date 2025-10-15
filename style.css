@@ -1,83 +1,71 @@
-/* ----- POSTER MODE ----- */
-:root {
-  --posterw: 1400px;   /* <- pick your exact poster width */
+/* === Banner Header (template-style, blue theme) === */
+:root{
+  --blue-900:#0f2b46;
+  --blue-800:#20445f;   /* template banner base */
+  --blue-600:#2f5aa6;   /* template "cases" blue */
+  --blue-200:#cfe0f2;
+  --accent:#90c2ff;     /* blue accent for highlighted word */
+  --white:#ffffff;
 }
 
-/* allow horizontal scroll if viewport is narrower than poster */
-html, body {
-  width: 100%;
-  overflow-x: auto;
+.hero{
+  /* typography (Poppins from your <head>) */
+  font-family:'Poppins', sans-serif;
+  color:var(--white);
+
+  /* template-like banner background */
+  background:
+    linear-gradient(0deg, rgba(32,68,95,0.88), rgba(32,68,95,0.88)),
+    url("media/webpage_banner.jpg");
+  background-position:center;
+  background-size:cover;
+
+  /* spacing similar to the template banner */
+  padding:28px 24px 30px;
+  text-shadow:1px 1px 0px rgba(0,0,0,0.75);
+  box-shadow:0 2px 12px rgba(0,0,0,0.15);
 }
 
-/* header spans the fixed poster width */
-header.hero {
-  max-width: var(--posterw);
-  margin: 0 auto;
+/* small eyebrow line above title */
+.hero-eyebrow{
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--blue-200);
+  margin-bottom:6px;
 }
 
-/* each viz section uses the same fixed width; no responsive max */
-.vis-wrap {
-  max-width: none;
-  width: var(--posterw);
-  margin: 40px auto;
-  padding: 0 0; /* poster-style edge-to-edge inside the width */
+/* big bold title (matches template h1 scale) */
+.hero-title{
+  font-weight:800;
+  font-size:48px;
+  line-height:1.1;
+  margin:5px 0 8px 0;
 }
 
-/* cards stay the same visual style */
-.card, .card-join {
-  width: 100%;
+/* accent word inside title */
+.hero-title .accent{
+  color:var(--accent);
+  text-shadow:1.5px 1.2px 0px rgba(0,0,0,0.85); /* mirrors template emphasis */
 }
 
-/* IMPORTANT: do NOT force Vega embeds to stretch */
-.vega-embed { width: auto !important; }  /* or remove your previous 100% rule */
-
-
-/* Centered visuals */
-#radial_fnb, #avg_rating_chart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* subtitle under title */
+.hero-subtitle{
+  font-weight:600;
+  font-size:18px;
+  max-width:60ch;
+  margin:0;
+  color:var(--white);
+  opacity:0.95;
 }
 
-#radial_fnb > div, #avg_rating_chart > div {
-  margin: 0 auto !important;
+/* responsive tweaks to keep the banner tidy on small screens */
+@media (max-width:900px){
+  .hero-title{ font-size:40px; }
 }
-
-
-/* one joined card that holds story (left) + map (right) */
-.card-join {
-  padding: 0;
-  overflow: hidden;
+@media (max-width:640px){
+  .hero{ padding:22px 18px 24px; }
+  .hero-title{ font-size:32px; }
+  .hero-subtitle{ font-size:16px; }
 }
-
-.join-grid {
-  display: grid;
-  /* fixed columns (poster-style). adjust to your taste */
-  grid-template-columns: 460px 900px;   /* left : right */
-  gap: 0;
-  align-items: stretch;
-}
-
-/* left column (story) */
-.story {
-  padding: 16px 18px;
-  border-right: 1px solid #d8e7f7;
-}
-
-/* right column (map area) */
-.map-box {
-  /* ensure the map area fits your Vega width + legend comfortably */
-  padding: 12px;
-}
-
-/* header type */
-.hero-eyebrow { font-size: 24px; }
-.hero-title   { font-size: 60px; }
-.hero-subtitle{ font-size: 18px; }
-
-/* story type */
-.story-title  { font-size: 20px; }
-.story-sub    { font-size: 18px; }
-.story p,
-.story li     { font-size: 14px; line-height: 1.5; }
-
