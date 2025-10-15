@@ -10,6 +10,15 @@
   --white: #ffffff;
 }
 
+body {
+  background-image: url("wallpaper.jpg");
+  background-size: cover;          /* make it fill the screen */
+  background-position: center;     /* center it nicely */
+  background-attachment: fixed;    /* keeps it in place while scrolling */
+  background-repeat: no-repeat;    /* no tiling */
+  background-color: var(--blue-50); /* fallback if image fails to load */
+}
+
 /* Global fixed layout */
 .vis-wrap {
   width: var(--maxw);
