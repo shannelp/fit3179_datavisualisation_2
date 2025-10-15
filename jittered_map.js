@@ -11,9 +11,9 @@ const malaysiaFnbMap = {
     color: "#000000",
     subtitleColor: "#5e5e5e"
   },
-  width: "container",
+  width: 800,
   height: 600,
-  projection: { type: "mercator", center: [109.4, 4], scale: 2300 },
+  projection: { type: "mercator", center: [109.4, 4], scale: 2300, translate: [410, 285]},  // half of width/height-ish; keeps the map locked 
 
   // Keep point colors independent from any geoshape coloring
   resolve: { scale: { color: "independent" } },
