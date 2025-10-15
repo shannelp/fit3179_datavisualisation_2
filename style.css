@@ -1,6 +1,6 @@
-/* === Banner Header (Fixed-Width Pastel Blue Theme) — UPDATED === */
+/* === Banner Header (Fixed-Width Pastel Blue Theme) — FINAL === */
 :root {
-  --maxw: 1100px;            /* fixed width everywhere */
+  --maxw: 1100px; /* fixed width everywhere */
   --blue-50: #f6faff;
   --blue-100: #dcecff;
   --blue-300: #a9cbf7;
@@ -10,29 +10,27 @@
   --white: #ffffff;
 }
 
-/* Optional fixed page wrapper if you want one container */
+/* === Global fixed layout === */
 .pagewrap,
 .vis-wrap {
   width: var(--maxw);
-  margin: 24px auto;         /* center the whole page block */
-  padding: 0;                /* no fluid padding; fixed layout */
+  margin: 24px auto;
+  padding: 0;
 }
 
-/* === Hero Banner (fixed width + justified text) === */
+/* === HERO BANNER === */
 .hero {
   font-family: 'Poppins', sans-serif;
   color: var(--blue-900);
   background-color: var(--blue-100);
-  width: var(--maxw);        /* fixed */
+  width: var(--maxw); /* same width as rest */
   margin: 40px auto;
   padding: 28px 24px 30px;
 
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
 
-  /* justify all text inside hero */
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: center; /* center hero title and subtitle */
 }
 
 .hero-eyebrow {
@@ -50,6 +48,7 @@
   line-height: 1.1;
   margin: 5px 0 8px 0;
   color: var(--blue-900);
+  text-align: center; /* not justified */
 }
 
 .hero-title .accent {
@@ -59,33 +58,34 @@
 .hero-subtitle {
   font-weight: 600;
   font-size: 18px;
-  max-width: none;           /* do not shrink on small screens */
-  margin: 0;                 /* avoid auto-centering gaps */
+  margin: 0 auto;
   color: var(--blue-700);
   opacity: 0.95;
+  display: inline-block; /* keeps underline centered */
   background: linear-gradient(var(--blue-300), var(--blue-300))
               center bottom / 200px 4px no-repeat;
   padding-bottom: 10px;
+  text-align: center; /* not justified */
 }
 
-/* === Cards (unchanged look, fixed width when used) === */
+/* === CARD STRUCTURE === */
 .card,
 .story-card {
   background: var(--white);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  width: var(--maxw);        /* fixed */
+  width: var(--maxw);
   margin: 0 auto;
   overflow: hidden;
 }
 
-/* === Storytelling (fixed + justified always) === */
+/* === STORYTELLING SECTION === */
 .storytelling {
   background: var(--blue-50);
   border-bottom: 1px solid rgba(0,0,0,0.06);
   padding: 22px 28px;
-  width: var(--maxw);        /* fixed */
-  margin: 0 auto;            /* center block */
+  width: var(--maxw);
+  margin: 0 auto;
 }
 
 .storytelling h2 {
@@ -94,18 +94,16 @@
   font-size: 28px;
   line-height: 1.2;
   margin: 0 0 10px 0;
-  color: var(--blue-900);
-  text-align: justify;       /* headings justified too */
-  text-justify: inter-word;
+  text-align: left; /* title not justified */
+  text-justify: auto;
 }
 
+/* Paragraphs only: justified */
 .storytelling p {
   margin: 8px 0;
   color: var(--blue-700);
   font-weight: 600;
-
-  /* always justified, never left-aligned */
-  text-align: justify !important;
+  text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
 }
@@ -116,22 +114,21 @@
   border-top: 1px dashed var(--blue-300);
 }
 
-/* === Map area (centered + fixed width) === */
+/* === MAP AREA === */
 .story-map {
   display: block;
-  width: var(--maxw);        /* fixed width for the map container */
+  width: var(--maxw);
   height: 560px;
-  margin: 0 auto;            /* horizontally center the block */
-  background: var(--blue-100);
+  margin: 0 auto;
   border-radius: 12px;
   position: relative;
   overflow: hidden;
 }
 
-/* Ensure any embedded map (iframe, canvas, svg) is centered & matches width */
+/* Embedded map centering */
 .story-map > * {
   display: block;
-  width: 100%;               /* fill the 1100px container */
+  width: 100%;
   height: 100%;
   margin: 0 auto;
 }
