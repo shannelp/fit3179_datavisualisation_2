@@ -2,40 +2,36 @@
 :root {
   --maxw: 1200px;
   --blue-50: #f6faff;
-  --blue-100: #e9f3ff;
-  --blue-300: #bfdcff;
+  --blue-100: #dcecff; /* lighter pastel for background */
+  --blue-300: #a9cbf7;
   --blue-500: #79aee8;
   --blue-700: #2a5c99;
-  --blue-900: #1c3b5f;
+  --blue-900: #133a6e; /* darker navy for text */
   --white: #ffffff;
 }
 
 /* === Hero Banner === */
 .hero {
   font-family: 'Poppins', sans-serif;
-  color: var(--blue-900);
+  color: var(--blue-900); /* dark blue text */
 
-  /* light pastel background */
-  background-color: var(--blue-100);
-
-  /* fixed box dimensions and positioning */
-  width: 900px;
-  margin: 40px auto; /* center on page with top spacing */
+  background-color: var(--blue-100); /* light blue background */
+  width: 1000px;
+  margin: 40px auto;
   padding: 28px 24px 30px;
 
-  text-shadow: none; /* clean look for pastel design */
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   text-align: center;
 }
 
-/* Eyebrow text (small line above main title) */
+/* Eyebrow text */
 .hero-eyebrow {
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--blue-700);
+  color: var(--blue-700); /* mid-blue for contrast */
   margin-bottom: 6px;
 }
 
@@ -45,15 +41,15 @@
   font-size: 48px;
   line-height: 1.1;
   margin: 5px 0 8px 0;
-  color: var(--blue-900);
+  color: var(--blue-900); /* dark blue text */
 }
 
 /* Highlighted word in title */
 .hero-title .accent {
-  color: var(--blue-500);
+  color: var(--blue-500); /* lighter accent blue */
 }
 
-/* Subtitle below title */
+/* Subtitle */
 .hero-subtitle {
   font-weight: 600;
   font-size: 18px;
@@ -61,9 +57,7 @@
   margin: 0 auto;
   color: var(--blue-700);
   opacity: 0.95;
-
-  /* optional underline effect matching your main layout */
-  background: linear-gradient(var(--blue-300), var(--blue-300)) 
+  background: linear-gradient(var(--blue-300), var(--blue-300))
               center bottom / 200px 4px no-repeat;
   padding-bottom: 10px;
 }
