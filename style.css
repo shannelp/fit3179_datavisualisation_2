@@ -19,7 +19,6 @@ html, body {
   min-width: var(--maxw);
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: var(--blue-50);
   overflow-x: auto;
   overflow-y: visible;
 }
