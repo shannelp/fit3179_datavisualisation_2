@@ -267,55 +267,76 @@ section.pure-g { margin-top: 24px; }
   text-justify: inter-word;
 }
 
-/* -------------------------------------------------- */
-/* RADIAL SECTION REFINEMENT — MATCH BOX HEIGHT & SPACING */
-/* -------------------------------------------------- */
+/* ============================================
+   RADIAL ROW — FINAL SPACING & SIZING MATCH
+   Paste at the END of your stylesheet
+   ============================================ */
 
-/* Remove excess space between the donut and the chart above */
-.pure-g.map-radial-row {
-  margin-top: 12px !important;   /* was 24px — tighten vertical spacing */
+/* tighten space above; add space below so next section doesn't touch */
+.pure-g.map-radial-row{
+  margin-top:12px !important;
+  margin-bottom:24px !important;   /* <- keeps a clean gap before next card */
+  align-items:flex-start !important;/* top align; do NOT equalize heights */
+  gap:24px !important;              /* match your global horizontal gap */
 }
 
-/* Keep the entire row aligned with others */
-.pure-g.map-radial-row > .pure-u-1.pure-u-md-1-2 {
-  align-self: stretch;           /* make both cards same height visually */
+/* TEXT COLUMN — fixed width, height = content */
+.pure-g.map-radial-row > .pure-u-1.pure-u-md-1-2:first-child{
+  flex:none !important;
+  width:360px !important;
+  min-width:360px !important;
+  max-width:360px !important;
+  align-self:auto !important;       /* undo any stretch */
 }
 
-/* Match card height consistency with other .card.unified sections */
-.pure-g.map-radial-row .card.unified {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;       /* centers content vertically */
+/* CHART COLUMN — let the chart card size itself */
+.pure-g.map-radial-row > .pure-u-1.pure-u-md-1-2:last-child{
+  flex:none !important;
+  width:auto !important;
 }
 
-/* Text box tighter padding (align visually with other cards) */
-.map-radial-row .block.storytelling {
-  padding: 22px 26px 24px 26px;  /* match your global .block rhythm */
+/* CARDS — same look as the rest, height by content */
+.map-radial-row .card.unified{
+  height:auto !important;
+  border-radius:12px !important;
+  box-shadow:0 2px 12px rgba(0,0,0,.08) !important;
+  overflow:hidden;
+  margin:0;                          /* no extra surprises */
+}
+.map-radial-row .card.unified .block{
+  padding:22px 26px !important;      /* matches your .block rhythm */
 }
 
-/* Donut card box slightly smaller to visually align with others */
-.map-radial-row .story-radial {
-  width: 580px;                  /* instead of 640px — matches card height */
-  height: 580px;
-  margin: 0 auto;
+/* TEXT STYLES (unchanged, just scoped here) */
+.map-radial-row .block.storytelling h2{
+  font-weight:800; font-size:28px; line-height:1.2;
+  margin:0 0 10px; color:var(--blue-900,#0d3069);
+}
+.map-radial-row .block.storytelling p{
+  margin:8px 0; font-size:17px; font-weight:600; color:var(--blue-700);
 }
 
-/* Keep Vega chart fixed within adjusted box */
+/* DONUT CONTAINER — a bit larger, centered */
+.map-radial-row .story-radial{
+  display:grid; place-items:center;
+  width:620px;                      /* more space than before */
+  height:620px;
+  margin:0 auto;
+  background:#fff; border-radius:12px; overflow:visible;
+}
+
+/* DONUT SIZE — fixed; fills the container nicely */
 .map-radial-row .story-radial .vega-embed,
 .map-radial-row .story-radial .vega-embed > *,
 .map-radial-row .story-radial svg,
-.map-radial-row .story-radial canvas {
-  width: 540px !important;
-  height: 540px !important;
+.map-radial-row .story-radial canvas{
+  display:block;
+  width:580px !important;
+  height:580px !important;
+  max-width:none !important;
+  max-height:none !important;
+  overflow:visible !important;
 }
-
-/* Optional: give cards identical shadow depth and corner rounding */
-.map-radial-row .card.unified {
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0,0,0,.08);
-}
-
 
 /* -------------------------------------------------- */
 /* FOOTER */
