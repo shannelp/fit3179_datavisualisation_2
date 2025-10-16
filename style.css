@@ -167,8 +167,9 @@ body::before {
 .pure-g {
   display: flex !important;
   flex-wrap: nowrap !important;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
+  gap: 24px; /* <-- add this */
 }
 
 /* Left chart: flexible width */
