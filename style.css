@@ -252,14 +252,12 @@ section.pure-g { margin-top: 24px; }
   overflow: hidden;
 }
 
+/* -------------------------------------------------- */
 /* Stacked chart + storytelling grid */
-.storytelling-below {
-  margin-top: 0;
-}
+/* -------------------------------------------------- */
+.storytelling-below { margin-top: 0; }
 
-.storytelling-below .block.storytelling {
-  padding-top: 18px;
-}
+.storytelling-below .block.storytelling { padding-top: 18px; }
 
 .storytelling-below h2 {
   margin-top: 0;
@@ -276,16 +274,40 @@ section.pure-g { margin-top: 24px; }
   text-justify: inter-word;
 }
 
+/* -------------------------------------------------- */
+/* RADIAL (DONUT) CHART — fixed centering */
+/* -------------------------------------------------- */
 .story-radial {
   display: flex;
-  justify-content: center; /* center horizontally */
-  align-items: center;     /* center vertically */
+  justify-content: center;     /* center horizontally */
+  align-items: center;          /* center vertically */
   height: 480px;
   background: #fff;
+  position: relative;
+  overflow: hidden;             /* prevents layout push from oversized svg */
 }
 
-.story-radial .vega-embed,
+/* Vega-Embed wraps the chart in one or more divs; make them flex-centered too */
+.story-radial > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+}
+
+/* Stop the wrapper from stretching full-width so it can be centered */
+.story-radial .vega-embed {
+  display: block;
+  margin: 0 auto !important;
+  width: auto !important;
+  max-width: 100%;
+}
+
+/* Ensure the visual itself behaves */
 .story-radial canvas,
 .story-radial svg {
-  margin: 0 auto;
+  display: block;
+  margin: 0 auto !important;
+  height: auto;
+  max-width: 100%;
 }
