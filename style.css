@@ -273,6 +273,9 @@ section.pure-g { margin-top: 24px; }
 /* -------------------------------------------------- */
 /* Layout row */
 
+/* -------------------------------------------------- */
+/* FIXED-SIZE RADIAL (DONUT) CHART */
+/* -------------------------------------------------- */
 .story-row {
   display: flex;
   gap: 24px;
@@ -280,36 +283,36 @@ section.pure-g { margin-top: 24px; }
 }
 
 /* Text panel */
-.story-text { flex: 0 1 38%; }
+.story-text {
+  flex: 0 1 38%;
+}
 
-/* Chart panel — square, centered, won’t shrink below 420px */
+/* Chart panel — fixed, centered, not scalable */
 .story-radial {
-  flex: 0 1 62%;
+  flex: 0 1 auto;               /* don’t let flex resize it */
   display: grid;
   place-items: center;
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  /* keep it square and responsive within bounds */
-  width: clamp(420px, 48vw, 600px);
-  aspect-ratio: 1 / 1;       /* locks the donut to a square */
+  width: 600px;                 /* FIXED width */
+  height: 600px;                /* FIXED height */
 }
 
-/* Let Vega-Embed fill the panel but not stretch smaller than its min */
+/* Vega container fills the panel */
 .story-radial > div,
 .story-radial .vega-embed {
   width: 100%;
   height: 100%;
 }
 
-/* IMPORTANT: remove hard 100% sizing so it doesn’t keep shrinking */
+/* SVG / Canvas stays centered, no scaling */
 .story-radial svg,
 .story-radial canvas {
-  width: auto !important;     /* was 100% */
-  height: auto !important;    /* was 100% */
-  max-width: 100%;
-  max-height: 100%;
+  width: 600px !important;      /* FIXED size */
+  height: 600px !important;     /* FIXED size */
   display: block;
+  margin: 0 auto;
 }
 
 /* -------------------------------------------------- */
