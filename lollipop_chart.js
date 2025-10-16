@@ -32,9 +32,15 @@ const avgRatingSpec = {
       encoding: { x: { value: 4.2 }, y: { value: 0 } }
     },
     {
-      mark: { type: "rule", strokeWidth: 4 },
+      // Lollipop stem
+      mark: { type: "rule", strokeWidth: 8 },
       encoding: {
-        y: { field: "LocationFull", title: "Location", type: "nominal", sort: "-x", axis: { labelAngle: 0, labelFontSize: 14, titleFontSize: 16 } },
+        y: {
+          field: "LocationFull",
+          type: "nominal",
+          sort: "-x", // sort by x (avg_rating) descending
+          axis: { labelAngle: 0, labelFontSize: 14, titleFontSize: 16 }
+        },
         x: {
           field: "avg_rating",
           type: "quantitative",
@@ -46,9 +52,15 @@ const avgRatingSpec = {
       }
     },
     {
+      // Lollipop head
       mark: { type: "circle" },
       encoding: {
-        y: { field: "LocationFull", type: "nominal", sort: "ascending" },
+        y: {
+          field: "LocationFull",
+          type: "nominal",
+          sort: "-x", // keep same ordering as stem
+          axis: { labelAngle: 0, labelFontSize: 14, titleFontSize: 16 }
+        },
         x: {
           field: "avg_rating",
           type: "quantitative",
@@ -68,10 +80,11 @@ const avgRatingSpec = {
       }
     },
     {
+      // Label for the highest rating
       transform: [{ filter: "datum.isTop" }],
       mark: { type: "text", dx: 15, align: "left", baseline: "middle", fontSize: 12, fontWeight: "bold", color: "#FFA4A4" },
       encoding: {
-        y: { field: "LocationFull", type: "nominal" },
+        y: { field: "LocationFull", type: "nominal", sort: "-x" },
         x: { field: "avg_rating", type: "quantitative" },
         text: { value: "Highest Rating" }
       }
