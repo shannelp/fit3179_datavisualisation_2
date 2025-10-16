@@ -52,8 +52,8 @@
             <p>Geography as well as economy shape where flavours come alive.</p>
             <p>Together, they form Malaysia’s vibrant, ever-evolving foodscape.</p>
             <ul class="insight-footnote">
-            <li>Each dot reflects passion and culinary entrepreneurship.</li>
-            <li>Use the legend to highlight dots of each region.</li>
+            <p>* Each dot reflects passion and culinary entrepreneurship.</p>
+            <<p>* Use the legend to highlight dots of each region.</p>
             </ul>
 
           </header>
@@ -108,10 +108,10 @@
                 <p>In Malaysia’s vibrant food scene, voices rise unevenly across the charts.</p>
                 <p>Some states buzz with almost 50,000 reviews, while quieter regions whisper</p>
                 <p>below the average line. Most storytellers speak kindly,</p>
-                <p> offering 4-to-5-star praises, painting a landscape of overall satisfaction.</p>
+                <p>offering 4-to-5-star praises, painting a landscape of overall satisfaction.</p>
                 <ul class="insight-footnote">
-                  <li>Hover over legend items to isolate a category.</li>
-                  <li>Use the dropdown filter to filter by rating.</li>
+                  <p>Hover over legend items to isolate a category.</p>
+                  <p>Use the dropdown filter to filter by rating.</p>
                 </ul>
               </div>
             </div>
@@ -121,6 +121,32 @@
       </div>
     </div>
 
+    <!-- RADIAL (text left, chart right) -->
+    <div class="pure-g map-radial-row">
+      <!-- LEFT: storytelling text -->
+      <div class="pure-u-1 pure-u-md-1-2">
+        <article class="card unified" aria-labelledby="radial-title">
+          <div class="block storytelling">
+            <h2 id="radial-title">What’s Driving Malaysia’s F&amp;B Buzz?</h2>
+            <p>Across Malaysia, certain categories shine brighter—family-friendly diners,
+              artisanal cafés, and heritage eateries draw consistent praise. Tourist hubs like
+              Langkawi and Penang amplify café and dessert culture, while Klang Valley’s fast casual
+              and specialty concepts scale quickly.</p>
+            <p>This radial view helps compare <em>share of venues</em> and <em>quality perception</em>
+              at a glance—large slices signal presence; outer reach hints at stronger ratings.</p>
+          </div>
+        </article>
+      </div>
+    
+      <!-- RIGHT: radial chart -->
+      <div class="pure-u-1 pure-u-md-1-2">
+        <article class="card unified">
+          <div class="block">
+            <div id="radial_fnb" class="story-radial" aria-label="Radial chart of F&amp;B categories by presence and rating"></div>
+          </div>
+        </article>
+      </div>
+    </div>
 
   <!-- Visualisations (place scripts BEFORE closing body) -->
   <script src="stacked_barchart.js"></script>
@@ -130,11 +156,3 @@
   <script src="dualaxis_chart.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
