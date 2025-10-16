@@ -2,17 +2,7 @@
 const stackedSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Stacked bar chart of review ratings across locations",
-  title: {
-    text: "Review Volume and Ratings in Malaysia",
-    anchor: "middle",
-    fontSize: 25,
-    fontWeight: "bold",
-    color: "#000000",
-    subtitle: "Comparing total reviews and ratings across Malaysian states",
-    subtitleFontSize: 16,
-    subtitleColor: "#5e5e5e",
-    offset: 50
-  },
+  
   data: {
     url: "https://raw.githubusercontent.com/shannelp/vegadata/refs/heads/main/food_ratings.csv"
   },
