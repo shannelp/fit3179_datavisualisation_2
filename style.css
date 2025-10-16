@@ -312,3 +312,24 @@ section.pure-g { margin-top: 24px; }
   max-width: 100%;
   max-height: 100%;
 }
+
+/* Assuming a flex container for both panels */
+.story-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px; /* space between text and chart */
+}
+
+/* Story text box smaller */
+.story-text {
+  flex: 0 0 35%;       /* was maybe 50%, reduce to 35% */
+  font-size: 0.9rem;   /* slightly smaller font for compactness */
+  line-height: 1.4;
+  padding: 16px 20px;  /* reduce padding */
+}
+
+/* Chart container gets more room */
+.story-radial {
+  flex: 0 0 60%;       /* increase from 50% to 60% */
+}
