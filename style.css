@@ -238,7 +238,7 @@ section.pure-g { margin-top: 24px; }
 /* Stacked bar chart container (below lollipop) */
 .story-stacked {
   width: 100%;
-  height: 480px;           /* adjust if needed */
+  height: 520px;           /* adjust if needed */
   background: #fff;
   margin: 18px auto 0;     /* small gap below lollipop */
   display: block;
