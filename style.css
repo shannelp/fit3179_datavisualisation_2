@@ -319,6 +319,7 @@ section.pure-g { margin-top: 24px; }
 /* FOOTER */
 /* -------------------------------------------------- */
 
+/* Footer container */
 .site-footer {
   background-color: var(--blue-100);
   color: var(--blue-900);
@@ -330,25 +331,29 @@ section.pure-g { margin-top: 24px; }
   font-family: 'Poppins', sans-serif;
 }
 
-.footer-subtitle {
+/* Make each line look like the hero-subtitle (no big header) */
+.site-footer .footer-text p {
   font-weight: 600;
   font-size: 18px;
   color: var(--blue-800);
   opacity: 0.95;
-  display: inline-block;
+  display: inline-block; /* needed for the underline highlight */
   background: linear-gradient(var(--blue-300), var(--blue-300)) center bottom / 180px 3px no-repeat;
   padding-bottom: 10px;
-  margin: 8px 0;
+  margin: 8px 12px;
 }
 
-.footer-content a {
+/* Link styling inside footer */
+.site-footer a {
   color: var(--blue-700);
   text-decoration: none;
   font-weight: 700;
+  border-bottom: 2px solid transparent;   /* subtle hover effect */
 }
 
-.footer-content a:hover {
+.site-footer a:hover {
   color: var(--blue-500);
-  text-decoration: underline;
+  border-bottom-color: currentColor;
 }
+
 
