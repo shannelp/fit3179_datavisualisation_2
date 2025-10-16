@@ -311,3 +311,41 @@ section.pure-g { margin-top: 24px; }
   max-height: 100%;
   display: block;
 }
+
+/* -------------------------------------------------- */
+/* FOOTER */
+/* -------------------------------------------------- */
+
+.site-footer {
+  background-color: var(--blue-100);
+  color: var(--blue-900);
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 25px 20px;
+  margin-top: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-subtitle {
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--blue-800);
+  opacity: 0.95;
+  display: inline-block;
+  background: linear-gradient(var(--blue-300), var(--blue-300)) center bottom / 180px 3px no-repeat;
+  padding-bottom: 10px;
+  margin: 8px 0;
+}
+
+.footer-content a {
+  color: var(--blue-700);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-content a:hover {
+  color: var(--blue-500);
+  text-decoration: underline;
+}
+
