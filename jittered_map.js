@@ -1,14 +1,14 @@
 // jittered_map.js
 const malaysiaFnbMap = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
-  
+
   width: 810,
   height: 600,
-  projection: { type: "mercator", center: [109.4, 4], scale: 2300, translate: [410, 285]},  // half of width/height-ish; keeps the map locked 
+  projection: { type: "mercator", center: [109.4, 4], scale: 2300, translate: [410, 285] }, // lock the map position
 
   // Keep point colors independent from any geoshape coloring
   resolve: { scale: { color: "independent" } },
-  
+
   layer: [
     // --- Graticule background ---
     {
@@ -93,14 +93,14 @@ const malaysiaFnbMap = {
             orient: "right",
             columns: 1,
             labelExpr:
-              "({'johor':'Johor','kedah':'Kedah', 'kelantan':'Kelantan', 'kuala lumpur':'Kuala Lumpur', 'labuan':'Labuan','melaka':'Melaka', 'negeri sembilan':'Negeri Sembilan', 'pahang':'Pahang','perak':'Perak','pulau pinang':'Pulau Pinang','sabah':'Sabah','sarawak':'Sarawak','selangor':'Selangor','terengganu':'Terengganu'})[datum.label] || datum.label"
+              "({'johor':'Johor','kedah':'Kedah','kelantan':'Kelantan','kuala lumpur':'Kuala Lumpur','labuan':'Labuan','melaka':'Melaka','negeri sembilan':'Negeri Sembilan','pahang':'Pahang','perak':'Perak','pulau pinang':'Pulau Pinang','sabah':'Sabah','sarawak':'Sarawak','selangor':'Selangor','terengganu':'Terengganu'})[datum.label] || datum.label"
           }
         },
 
         // Opacity control: highlight selected legend region, dim others
         opacity: {
           condition: { param: "regionSelect", value: 1 },
-          value: 0
+          value: 0.1
         },
 
         tooltip: [
