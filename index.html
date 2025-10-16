@@ -150,6 +150,28 @@
       </div>
     </div>
 
+    <!-- DUAL-AXIS CHART + STORYTELLING -->
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <article class="card unified" aria-labelledby="dualaxis-title">
+          <header class="storytelling">
+            <h2 id="dualaxis-title">Ratings vs. Reviews: Do Popular Places Rate Higher?</h2>
+            <p>This dual-axis chart compares each location’s average food rating (line) against its total
+            number of reviews (bars). States with strong review volume and high ratings indicate
+            broad appeal and consistent quality, while places with fewer reviews but high scores
+            may be hidden gems awaiting discovery.</p>
+            <p>Use it to spot standout regions where buzz and satisfaction rise together—and those
+            where popularity outpaces sentiment.</p>
+          </header>
+    
+          <!-- Chart container -->
+          <div id="dualaxis_chart" class="story-dualaxis"
+               aria-label="Dual-axis chart of average rating (line) and total reviews (bars) by location">
+          </div>
+        </article>
+      </div>
+</div>
+
   <!-- Visualisations (place scripts BEFORE closing body) -->
   <script src="stacked_barchart.js"></script>
   <script src="jittered_map.js"></script>
