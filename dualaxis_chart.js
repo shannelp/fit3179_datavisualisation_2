@@ -2,16 +2,7 @@
 const malaysiaFnbGrowthSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Cumulative F&B businesses over time across all of Malaysia (no filtering).",
-  title: {
-    text: "Growth of Food & Beverage Businesses from 1991 to 2021",
-    subtitle: "Cumulative and annual totals based on recorded entries in Malaysia",
-    fontSize: 25,
-    subtitleFontSize: 16,
-    anchor: "center",
-    color: "black",
-    subtitleColor: "#5e5e5e"
-  },
-  width: "container",
+  width: 800,
   height: 500,
 
   config: {
