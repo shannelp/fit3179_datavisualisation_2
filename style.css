@@ -44,7 +44,6 @@ body::before {
 
 /* Pure grid reset to avoid extra spacing */
 .pure-g { margin-left: 0; margin-right: 0; }
-.pure-u-1 { width: 100%; }
 
 /* -------------------------------------------------- */
 /* HERO HEADER */
@@ -222,5 +221,5 @@ section.pure-g { margin-top: 24px; }
 /* -------------------------------------------------- */
 /* RESPONSIVE TWEAKS */
 /* -------------------------------------------------- */
-/* No special rules needed—Pure's classes handle stacking:
+/* No extra rules needed—Pure handles:
    pure-u-1 (mobile) + pure-u-md-2-3 / pure-u-md-1-3 (md+). */
