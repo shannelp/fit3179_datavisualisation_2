@@ -90,8 +90,43 @@
       </div>
     </div>
 
-      <!-- Stacked Bar (new, below lollipop) -->
-    <div id="stacked_chart" class="story-stacked" aria-label="Category Mix by Location"></div>
+     <!-- STACKED BAR CHART + STORYTELLING -->
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <article class="card unified" aria-labelledby="stacked-title">
+    
+          <!-- CHART -->
+          <div class="block">
+            <div id="stacked_chart" class="story-stacked" aria-label="Category Mix by Location"></div>
+          </div>
+    
+          <!-- STORYTELLING (below chart) -->
+          <div class="pure-g storytelling-below">
+            <div class="pure-u-1">
+              <div class="block storytelling">
+                <h2 id="stacked-title">Category Mix by Location</h2>
+                <p>
+                  The stacked bars compare how each location’s food businesses are distributed
+                  across categories. Urban hubs like Kuala Lumpur and Selangor skew toward cafés
+                  and casual dining, while Penang and Melaka highlight local specialties and hawker culture.
+                </p>
+                <p>
+                  Tourist destinations such as Langkawi feature cafés and dessert outlets, reflecting
+                  short-stay visitor trends. Johor’s balanced mix points to diverse, cross-border
+                  dining demand, while consistency across regions shows Malaysia’s resilient food ecosystem.
+                </p>
+                <ul class="insight-footnote">
+                  <li>Hover over legend items to isolate a category.</li>
+                  <li>Compare stacked heights to assess category dominance per city.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+    
+        </article>
+      </div>
+    </div>
+
 
   <!-- Visualisations (place scripts BEFORE closing body) -->
   <script src="stacked_barchart.js"></script>
