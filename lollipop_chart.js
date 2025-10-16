@@ -33,8 +33,8 @@ const avgRatingSpec = {
     { joinaggregate: [{ op: "max", field: "avg_rating", as: "max_avg" }] },
     { calculate: "abs(datum.avg_rating - datum.max_avg) < 1e-6", as: "isTop" }
   ],
-  height: 400,
-  width: 400,
+  height: 300,
+  width: 300,
   layer: [
     {
       mark: { type: "text", align: "left", baseline: "bottom", dx: 6, dy: -6, fontSize: 12, color: "#032223" },
