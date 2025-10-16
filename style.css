@@ -282,7 +282,7 @@ section.pure-g { margin-top: 24px; }
   justify-content: center;     /* center horizontally */
   align-items: center;          /* center vertically */
   height: 600px;                /* increased from 480px */
-  width: 500px;                  /* allow full container width */
+  width: 600px;                  /* allow full container width */
   background: #fff;
   position: relative;
   overflow: hidden;             /* prevents layout push from oversized svg */
