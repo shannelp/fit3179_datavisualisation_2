@@ -275,16 +275,18 @@ section.pure-g { margin-top: 24px; }
 }
 
 /* -------------------------------------------------- */
-/* RADIAL (DONUT) CHART — fixed centering */
+/* RADIAL (DONUT) CHART — enlarged and centered */
 /* -------------------------------------------------- */
 .story-radial {
   display: flex;
   justify-content: center;     /* center horizontally */
   align-items: center;          /* center vertically */
-  height: 480px;
+  height: 600px;                /* increased from 480px */
+  width: 100%;                  /* allow full container width */
   background: #fff;
   position: relative;
   overflow: hidden;             /* prevents layout push from oversized svg */
+  border-radius: 12px;          /* match card rounding */
 }
 
 /* Vega-Embed wraps the chart in one or more divs; make them flex-centered too */
@@ -292,15 +294,18 @@ section.pure-g { margin-top: 24px; }
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 /* Stop the wrapper from stretching full-width so it can be centered */
 .story-radial .vega-embed {
   display: block;
   margin: 0 auto !important;
-  width: auto !important;
+  width: 90% !important;        /* occupy most of the container */
+  height: 90% !important;       /* enlarge chart height proportionally */
   max-width: 100%;
+  max-height: 100%;
 }
 
 /* Ensure the visual itself behaves */
@@ -308,6 +313,8 @@ section.pure-g { margin-top: 24px; }
 .story-radial svg {
   display: block;
   margin: 0 auto !important;
-  height: auto;
+  height: 100% !important;
+  width: 100% !important;
   max-width: 100%;
+  max-height: 100%;
 }
