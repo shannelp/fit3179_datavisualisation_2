@@ -155,14 +155,14 @@ body::before {
   background: #fff;
 }
 
+
 /* -------------------------------------------------- */
-/* LOLLIPOP CHART + INSIGHTS PANEL */
+/* LOLLIPOP + INSIGHTS */
 /* -------------------------------------------------- */
 
-/* Let Pure.css handle the columns; do NOT override with flex */
+/* Let Pure handle column widths; no flex overrides */
 .chart-row { margin: 0; }
 
-/* Left: Lollipop chart container */
 .story-lollipop {
   width: 100%;
   height: 480px;
@@ -181,7 +181,6 @@ body::before {
   background: #fff !important;
 }
 
-/* Title above chart */
 .chart-title {
   font-weight: 800;
   font-size: 28px;
@@ -191,8 +190,9 @@ body::before {
   text-align: left;
 }
 
-/* Right: Insights column */
-.insight-panel { padding: 8px 22px 8px 28px; }
+.insight-panel {
+  padding: 8px 18px 8px 22px;   /* slightly smaller horizontal pad */
+}
 .insight-title {
   font-weight: 800;
   font-size: 22px;
@@ -215,11 +215,5 @@ body::before {
   opacity: .85;
 }
 
-/* Keep spacing between sections consistent */
+/* Section spacing */
 section.pure-g { margin-top: 24px; }
-
-/* -------------------------------------------------- */
-/* RESPONSIVE TWEAKS */
-/* -------------------------------------------------- */
-/* No extra rules needed—Pure handles:
-   pure-u-1 (mobile) + pure-u-md-2-3 / pure-u-md-1-3 (md+). */
