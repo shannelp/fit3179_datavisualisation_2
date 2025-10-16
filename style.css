@@ -156,64 +156,44 @@ body::before {
 }
 
 
-/* -------------------------------------------------- */
-/* LOLLIPOP + INSIGHTS */
-/* -------------------------------------------------- */
+/* ===== LOLLIPOP + RIGHT-SIDE INSIGHTS (separate card) ===== */
 
-/* Let Pure handle column widths; no flex overrides */
-.chart-row { margin: 0; }
-
-.story-lollipop {
-  width: 100%;
-  height: 480px;
-  background: #fff;
-  margin: 0 auto;
-  display: block;
-  position: relative;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  border-radius: 8px;
-}
-.story-lollipop .vega-embed,
-.story-lollipop canvas,
-.story-lollipop svg {
-  display: block;
-  margin: 0 auto;
-  background: #fff !important;
+/* Hide the old inline chart title now that it's moved */
+.chart-title { 
+  display: none !important;
 }
 
-.chart-title {
+/* New right-side insights card */
+.insight-card .block {
+  padding: 26px 22px;
+}
+
+/* Make the insights card read like a section header */
+.insight-card .insight-title {
   font-weight: 800;
   font-size: 28px;
   line-height: 1.25;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   color: var(--blue-900);
-  text-align: left;
 }
 
-.insight-panel {
-  padding: 8px 18px 8px 22px;   /* slightly smaller horizontal pad */
-}
-.insight-title {
-  font-weight: 800;
-  font-size: 22px;
-  line-height: 1.25;
-  margin: 6px 0 10px;
-  color: var(--blue-900);
-}
-.insight-list {
+/* Insights tidy spacing */
+.insight-card .insight-list {
   margin: 0 0 10px 18px;
   padding: 0;
+  list-style-type: disc;
   color: var(--blue-700);
   font-weight: 600;
-  list-style-type: disc;
 }
-.insight-list li { margin: 8px 0; }
-.insight-footnote {
-  margin-top: 6px;
-  font-size: 12.5px;
-  color: var(--blue-700);
-  opacity: .85;
+.insight-card .insight-list li { margin: 8px 0; }
+
+
+/* Optional: small visual alignment tweak so the two cards top-align nicely */
+.story-lollipop {
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
+
 
 /* Section spacing */
 section.pure-g { margin-top: 24px; }
