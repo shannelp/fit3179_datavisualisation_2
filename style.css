@@ -276,12 +276,6 @@ section.pure-g { margin-top: 24px; }
   text-justify: inter-word;
 }
 
-#radial_fnb {
-  width: 500px;
-  min-height: 420px;
-  background: #fff;
-}
-
 .story-radial {
   display: flex;
   justify-content: center; /* center horizontally */
@@ -295,5 +289,3 @@ section.pure-g { margin-top: 24px; }
 .story-radial svg {
   margin: 0 auto;
 }
-
-
