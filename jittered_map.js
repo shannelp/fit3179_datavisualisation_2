@@ -1,16 +1,7 @@
 // jittered_map.js
 const malaysiaFnbMap = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
-  title: {
-    text: "Geographic Distribution of Food & Beverage Businesses in Malaysia",
-    subtitle: "Mapping the locations of 281 F&B establishments across Malaysian regions",
-    fontSize: 25,
-    fontWeight: "bold",
-    subtitleFontSize: 16,
-    anchor: "middle",
-    color: "#000000",
-    subtitleColor: "#5e5e5e"
-  },
+  
   width: 810,
   height: 600,
   projection: { type: "mercator", center: [109.4, 4], scale: 2300, translate: [410, 285]},  // half of width/height-ish; keeps the map locked 
