@@ -140,7 +140,6 @@ body {
   background: #ffffff !important;
 }
 
-
 /* ===== LOLLIPOP + RIGHT-SIDE INSIGHTS (separate card) ===== */
 
 /* Hide the old inline chart title now that it's moved */
@@ -268,49 +267,88 @@ section.pure-g { margin-top: 24px; }
   text-justify: inter-word;
 }
 
-/* -------------------------------------------------- */
-/* RADIAL (DONUT) CHART — enlarged and centered */
-/* -------------------------------------------------- */
+/* ==== RADIAL (text left, chart right) — fixed desktop ==== */
 
-/* Layout row */
-.story-row {
-  display: flex;
-  flex-wrap: wrap;          /* ✅ allows wrapping on small screens */
-  gap: 24px;
-  align-items: center;      /* ✅ vertically center text + chart */
-  justify-content: center;  /* ✅ horizontally center everything */
-  text-align: left;         /* keep text readable */
+/* Stop Pure.css from reflowing this row */
+.pure-g.map-radial-row{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  align-items:flex-start;
+  justify-content:flex-start;
+  gap:24px;
+  margin-top:24px;
 }
 
-/* Text box */
-.story-text {
-  flex: 0 0 360px;          /* ✅ fixed logical width (not % based) */
-  max-width: 400px;
+/* LEFT column: fixed text card width */
+.pure-g.map-radial-row > .pure-u-1.pure-u-md-1-2:first-child{
+  flex:none !important;
+  width:360px !important;
+  min-width:360px !important;
+  max-width:360px !important;
 }
 
-/* Chart container */
-.story-radial {
-  flex: 0 0 auto;           /* ✅ prevent shrinking/growing */
-  display: grid;
-  place-items: center;
-  background: #fff;
-  border-radius: 12px;
-  overflow: visible;        /* ✅ allows legend to show fully */
-  width: 640px;             /* ✅ fixed box, matches chart spec */
-  height: 640px;
-  margin: 0 auto;           /* ✅ ensures centered if standalone */
+/* RIGHT column: holds the donut card */
+.pure-g.map-radial-row > .pure-u-1.pure-u-md-1-2:last-child{
+  flex:none !important;          /* keep it fixed too */
+  width:640px !important;        /* card box */
+  min-width:640px !important;
 }
 
-/* Ensure Vega chart keeps its native size */
-.story-radial > div,
+/* Card look (matches your other panels) */
+.card.unified{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 2px 10px rgba(0,0,0,.05);
+  align-self:flex-start;
+}
+.card.unified .block{ padding:24px 28px 32px; }
+
+/* Text styles inside the left card */
+.block.storytelling h2{
+  font-weight:800;
+  font-size:28px;
+  line-height:1.25;
+  margin:0 0 12px;
+  color:var(--blue-900,#0d3069);
+}
+.block.storytelling p{
+  margin:0 0 6px;
+  font-size:17px;
+  font-weight:600;
+  line-height:1.55;
+  color:var(--blue-800,#1b4b87);
+}
+
+/* Donut chart container (inside right card) */
+.story-radial{
+  display:grid;
+  place-items:center;
+  width:640px;                  /* fixed card */
+  height:640px;
+  border-radius:12px;
+  overflow:visible;             /* let legend/ticks breathe */
+  background:#fff;
+}
+
+/* Force Vega/Vega-Lite to exact drawing size */
 .story-radial .vega-embed,
-.story-radial svg,
-.story-radial canvas {
-  width: auto !important;
-  height: auto !important;
-  max-width: none !important;  /* ✅ stop browser from scaling */
-  max-height: none !important;
+.story-radial .vega-embed > *{
+  display:block;
+  width:600px !important;
+  height:600px !important;
+  max-width:none !important;
+  max-height:none !important;
+  overflow:visible !important;
 }
+.story-radial svg,
+.story-radial canvas{
+  display:block;
+  width:600px !important;
+  height:600px !important;
+}
+
+/* Safety: never clip horizontally */
+html, body, .map-radial-row, .card.unified{ overflow-x:visible !important; }
 
 /* -------------------------------------------------- */
 /* FOOTER */
