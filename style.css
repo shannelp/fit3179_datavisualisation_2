@@ -285,3 +285,20 @@ section.pure-g { margin-top: 24px; }
   text-justify: inter-word;
 }
 
+.story-radial {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  height: 480px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  background: #fff;
+}
+
+.story-radial .vega-embed,
+.story-radial canvas,
+.story-radial svg {
+  margin: 0 auto;
+}
+
+
