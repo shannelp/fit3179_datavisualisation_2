@@ -169,7 +169,7 @@ body::before {
   flex-wrap: nowrap !important;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 24px; /* <-- add this */
+  gap: 24px; /* adds space between chart and insight card */
 }
 
 /* Left chart: flexible width */
