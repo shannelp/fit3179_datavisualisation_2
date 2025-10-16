@@ -1,4 +1,4 @@
-/* === Fixed-Width Pastel Blue Theme — SINGLE CONTAINER === */
+/* === Fixed-Width Pastel Blue Theme — PURE GRID ALIGNED === */
 :root {
   --maxw: 1100px;
   --blue-50: #f6faff;
@@ -10,33 +10,34 @@
   --white: #ffffff;
 }
 
+/* Background */
 body {
   background-image: url("wallpaper.jpg");
-  background-size: cover;          /* make it fill the screen */
-  background-position: center;     /* center it nicely */
-  background-attachment: fixed;    /* keeps it in place while scrolling */
-  background-repeat: no-repeat;    /* no tiling */
-  background-color: var(--blue-50); /* fallback if image fails to load */
-}
-
-/* Global fixed layout */
-.vis-wrap {
-  width: var(--maxw);
-  margin: 24px auto;
-  padding: 0;
-}
-
-/* HERO (same width as content) */
-.hero {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-color: var(--blue-50);
+  margin: 0;
   font-family: 'Poppins', sans-serif;
-  color: var(--blue-900);
+}
+
+/* --- PURE GRID PAGE CONTAINER --- */
+.page {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+/* --- HERO SECTION (now inside .pure-g) --- */
+.hero {
   background-color: var(--blue-100);
-  width: var(--maxw);
-  margin: 40px auto;
-  padding: 28px 24px 30px;
+  color: var(--blue-900);
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
   border-radius: 12px;
+  padding: 28px 24px 30px;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .hero-eyebrow {
@@ -63,7 +64,6 @@ body {
 .hero-subtitle {
   font-weight: 600;
   font-size: 18px;
-  margin: 0 auto;
   color: var(--blue-700);
   opacity: .95;
   display: inline-block;
@@ -72,26 +72,21 @@ body {
   padding-bottom: 10px;
 }
 
-/* ONE unified card */
+/* --- UNIFIED CARD SECTION --- */
 .card.unified {
-  width: var(--maxw);
-  margin: 0 auto;
-  background: #fff;
+  background: var(--white);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,.08);
   overflow: hidden;
+  margin-top: 20px;
 }
 
-/* Intro storytelling */
+/* --- Storytelling Block --- */
 .storytelling {
-  background: #ffffff;
   padding: 22px 28px;
-  border-bottom: none !important; /* Remove unwanted horizontal line */
-  margin-bottom: 0 !important;    /* Prevent subtle white seam */
 }
 
 .storytelling h2 {
-  font-family: 'Poppins', sans-serif;
   font-weight: 800;
   font-size: 28px;
   line-height: 1.2;
@@ -109,41 +104,30 @@ body {
   hyphens: auto;
 }
 
-/* slimmer storytelling variant (optional use) */
-.storytelling.slim {
-  background: transparent;
-  border: 0;
-  padding: 0 0 0 12px;
-}
-
-/* Map inside the same card */
+/* --- Map Block --- */
 .story-map {
   display: block;
   width: 100%;
   height: 560px;
-  margin: 0 auto;
   background: #ffffff;
+  margin: 0 auto;
 }
 
-/* Embedded map centering */
 .story-map > * {
   display: block;
   width: 100%;
   height: 100%;
-  margin: 0 auto;
 }
 
-/* Standard inner sections within the unified card */
+/* --- Standard Inner Blocks (for charts etc.) --- */
 .block {
   padding: 22px 24px;
   border-bottom: 1px solid rgba(0,0,0,.06);
 }
-
 .block:last-of-type {
   border-bottom: 0;
 }
 
-/* Chart blocks (generic, covers stacked, radial, growth, etc.) */
 #stacked_chart,
 #radial_fnb,
 #fnb_growth {
@@ -152,24 +136,9 @@ body {
   background: #fff;
 }
 
-/* -------------- FIX SECTION -------------- */
-/* Seamless storytelling → map transition */
-.card.unified .storytelling {
-  border-bottom: 0 !important;
-  margin-bottom: 0 !important;
-}
-.card.unified .story-map {
-  margin-top: 0 !important;
-}
-
-/* Make Vega map transparent so the pastel blue background shows */
+/* Vega transparency fix */
 #fnb_map .vega-embed,
 #fnb_map canvas,
 #fnb_map svg {
   background: #ffffff !important;
-}
-
-/* Keep rounded edges and hide tiny white gaps */
-.card.unified {
-  overflow: hidden;
 }
