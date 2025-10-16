@@ -2,20 +2,11 @@
 const radialFnbSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Compact radial chart of the distribution of 281 F&B Businesses",
-  width: "container",
+  width: 550,
   height: 500,
   data: {
     url: "https://raw.githubusercontent.com/shannelp/vegadata/main/malaysia_fnb_points.csv",
     format: { type: "csv" }
-  },
-  title: {
-    text: "Sizes of Food & Beverage Businesses in Malaysia",
-    subtitle: "Grouped by the size ranges of 281 businesses",
-    fontSize: 25,
-    subtitleFontSize: 16,
-    subtitleColor: "#5e5e5e",
-    anchor: "middle",
-    dy: -10
   },
 
   transform: [
