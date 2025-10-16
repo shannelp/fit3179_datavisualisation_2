@@ -243,15 +243,21 @@ section.pure-g { margin-top: 24px; }
   margin: 18px auto 0;     /* small gap below lollipop */
   display: block;
   position: relative;
+
+  /* Rounded + clean frame (matches your cards) */
+  overflow: hidden;        /* ensures chart corners are rounded */
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* Keep embedded Vega centered */
+/* Keep embedded Vega centered + rounded */
 .story-stacked .vega-embed,
 .story-stacked canvas,
 .story-stacked svg {
   display: block;
   margin: 0 auto;
   background: #fff !important;
+  border-radius: 12px;
+  overflow: hidden;
 }
+
