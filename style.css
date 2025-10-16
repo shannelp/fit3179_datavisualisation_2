@@ -146,15 +146,6 @@ body::before {
   background: #ffffff !important;
 }
 
-/* Optional other charts */
-#stacked_chart,
-#radial_fnb,
-#fnb_growth {
-  width: 100%;
-  min-height: 420px;
-  background: #fff;
-}
-
 
 /* ===== LOLLIPOP + RIGHT-SIDE INSIGHTS (separate card) ===== */
 
@@ -283,6 +274,12 @@ section.pure-g { margin-top: 24px; }
   margin: 8px 0;
   text-align: justify;
   text-justify: inter-word;
+}
+
+#radial_fnb {
+  width: 500px;
+  min-height: 420px;
+  background: #fff;
 }
 
 .story-radial {
