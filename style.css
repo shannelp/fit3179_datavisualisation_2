@@ -163,12 +163,27 @@ body::before {
   display: none !important;
 }
 
-/* New right-side insights card */
+/* New right-side insights card (fixed size + no scaling) */
+.insight-card {
+  width: 340px;              /* fixed width */
+  min-width: 340px;          /* prevent shrinking */
+  max-width: 340px;          /* prevent expansion */
+  position: relative;        /* stay in layout but not overlap */
+}
+
+/* Prevent the right card from scaling in responsive grid */
+@media (min-width: 48em) {
+  .pure-g > .pure-u-md-1-3 {
+    flex: none !important;   /* stop Pure.css from resizing */
+  }
+}
+
+/* Content padding inside the fixed box */
 .insight-card .block {
   padding: 32px 28px 40px 28px;
 }
 
-/* Make the insights card read like a section header */
+/* Title inside the fixed insights box */
 .insight-card .insight-title {
   font-weight: 800;
   font-size: 28px;
@@ -187,13 +202,12 @@ body::before {
 }
 .insight-card .insight-list li { margin: 8px 0; }
 
-
-/* Optional: small visual alignment tweak so the two cards top-align nicely */
+/* Chart card stays flexible */
 .story-lollipop {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  width: 100%;
 }
-
 
 /* Section spacing */
 section.pure-g { margin-top: 24px; }
