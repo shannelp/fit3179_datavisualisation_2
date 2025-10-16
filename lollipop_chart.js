@@ -34,7 +34,7 @@ const avgRatingSpec = {
     {
       mark: { type: "rule", strokeWidth: 4 },
       encoding: {
-        y: { field: "LocationFull", title: "Location", type: "nominal", sort: "ascending", axis: { labelAngle: 0, labelFontSize: 14, titleFontSize: 16 } },
+        y: { field: "LocationFull", title: "Location", type: "nominal", sort: "-x", axis: { labelAngle: 0, labelFontSize: 14, titleFontSize: 16 } },
         x: {
           field: "avg_rating",
           type: "quantitative",
