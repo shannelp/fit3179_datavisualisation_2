@@ -2,7 +2,7 @@
 const malaysiaFnbStateMap = {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "width": 810,
-  "height": 600,
+  "height": 500,
   "projection": { "type": "mercator", "center": [109.4, 4], "scale": 2300, "translate": [410, 285] },
   "resolve": { "scale": { "color": "independent" } },
 
