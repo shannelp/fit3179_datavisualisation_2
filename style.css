@@ -261,3 +261,27 @@ section.pure-g { margin-top: 24px; }
   overflow: hidden;
 }
 
+/* Stacked chart + storytelling grid */
+.storytelling-below {
+  margin-top: 0;
+}
+
+.storytelling-below .block.storytelling {
+  padding-top: 18px;
+}
+
+.storytelling-below h2 {
+  margin-top: 0;
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--blue-900);
+}
+
+.storytelling-below p {
+  color: var(--blue-700);
+  font-weight: 600;
+  margin: 10px 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
