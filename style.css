@@ -24,15 +24,9 @@ html, body {
 }
 
 /* Full viewport wallpaper that fits any zoom */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("wallpaper.jpg");
-  background-size: cover;      /* always fill viewport */
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -1;                 /* behind all content */
+body {
+      background: url("wallpaper.jpg") no-repeat center center fixed;
+      background-size: cover;
 }
 
 .page {
