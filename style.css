@@ -9,36 +9,47 @@
   --white: #ffffff;
 }
 
-/* Lock the page to a fixed canvas */
+/* -------------------------------------------------- */
+/* GLOBAL LAYOUT & WALLPAPER */
+/* -------------------------------------------------- */
+
+/* Fixed canvas width, allow horizontal scroll but no squish */
 html, body {
   width: 100%;
   min-width: var(--maxw);
-  overflow-x: auto;           /* show a scrollbar instead of shrinking */
-  background-color: var(--blue-50);
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  background-color: var(--blue-50);
+  overflow-x: auto;
+  overflow-y: visible;
 }
 
-/* Optional wallpaper; won’t affect layout width */
-body {
+/* Full viewport wallpaper that fits any zoom */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
   background-image: url("wallpaper.jpg");
-  background-size: cover;
+  background-size: cover;      /* always fill viewport */
   background-position: center;
-  background-attachment: fixed;
   background-repeat: no-repeat;
+  z-index: -1;                 /* behind all content */
 }
 
 .page {
-  width: var(--maxw);          /* fixed, not max-width */
+  width: var(--maxw);
   margin: 0 auto;
   padding: 30px 20px 60px;
+  min-height: 100vh;
 }
 
-/* Pure grid sometimes adds responsive width—this keeps our fixed frame intact */
+/* Pure grid reset to avoid extra spacing */
 .pure-g { margin-left: 0; margin-right: 0; }
 .pure-u-1 { width: 100%; }
 
-/* Hero */
+/* -------------------------------------------------- */
+/* HERO HEADER */
+/* -------------------------------------------------- */
 .hero {
   background-color: var(--blue-100);
   color: var(--blue-900);
@@ -78,7 +89,9 @@ body {
   padding-bottom: 10px;
 }
 
-/* Unified Card */
+/* -------------------------------------------------- */
+/* UNIFIED CARDS */
+/* -------------------------------------------------- */
 .card.unified {
   background: var(--white);
   border-radius: 12px;
@@ -87,7 +100,15 @@ body {
   margin-top: 20px;
 }
 
-/* Storytelling copy */
+.block {
+  padding: 22px 24px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.block:last-of-type { border-bottom: 0; }
+
+/* -------------------------------------------------- */
+/* STORYTELLING (TEXT SECTIONS) */
+/* -------------------------------------------------- */
 .storytelling {
   padding: 22px 28px;
 }
@@ -108,29 +129,26 @@ body {
   hyphens: auto;
 }
 
-/* Map container: fixed size + centered */
+/* -------------------------------------------------- */
+/* MAP VISUALIZATION */
+/* -------------------------------------------------- */
 .story-map {
   width: 100%;
-  height: 560px;      /* fixed height—adjust if you like */
+  height: 560px;
   background: #ffffff;
-  margin: 0 auto;     /* centers the container itself */
+  margin: 0 auto;
   display: block;
   position: relative;
 }
-
-/* Make the Vega view itself centered and non-stretchy */
 .story-map .vega-embed,
 .story-map canvas,
 .story-map svg {
   display: block;
-  margin: 0 auto;     /* centers the rendered canvas/SVG */
+  margin: 0 auto;
   background: #ffffff !important;
 }
 
-/* Optional chart blocks (fixed height examples) */
-.block { padding: 22px 24px; border-bottom: 1px solid rgba(0,0,0,.06); }
-.block:last-of-type { border-bottom: 0; }
-
+/* Optional other charts */
 #stacked_chart,
 #radial_fnb,
 #fnb_growth {
@@ -138,3 +156,88 @@ body {
   min-height: 420px;
   background: #fff;
 }
+
+/* -------------------------------------------------- */
+/* LOLLIPOP CHART + INSIGHTS PANEL */
+/* -------------------------------------------------- */
+.chart-row {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Left: Lollipop chart container */
+.story-lollipop {
+  width: 100%;
+  height: 480px;
+  background: #fff;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-radius: 8px;
+}
+.story-lollipop .vega-embed,
+.story-lollipop canvas,
+.story-lollipop svg {
+  display: block;
+  margin: 0 auto;
+  background: #fff !important;
+}
+
+/* Title above chart */
+.chart-title {
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.25;
+  margin: 0 0 14px;
+  color: var(--blue-900);
+  text-align: left;
+}
+
+/* Right: Insights column */
+.insight-panel {
+  padding: 8px 22px 8px 28px;
+}
+.insight-title {
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 6px 0 10px;
+  color: var(--blue-900);
+}
+.insight-list {
+  margin: 0 0 10px 18px;
+  padding: 0;
+  color: var(--blue-700);
+  font-weight: 600;
+  list-style-type: disc;
+}
+.insight-list li {
+  margin: 8px 0;
+}
+.insight-footnote {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: var(--blue-700);
+  opacity: .85;
+}
+
+/* Keep spacing between sections consistent */
+section.pure-g {
+  margin-top: 24px;
+}
+
+/* -------------------------------------------------- */
+/* RESPONSIVE TWEAKS */
+/* -------------------------------------------------- */
+@media (max-width: 768px) {
+  .chart-row {
+    flex-direction: column;
+  }
+  .insight-panel {
+    padding-top: 20px;
+  }
+}
+
