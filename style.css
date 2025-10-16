@@ -163,27 +163,40 @@ body::before {
   display: none !important;
 }
 
-/* New right-side insights card (fixed size + no scaling) */
-.insight-card {
-  width: 340px;              /* fixed width */
-  min-width: 340px;          /* prevent shrinking */
-  max-width: 340px;          /* prevent expansion */
-  position: relative;        /* stay in layout but not overlap */
+/* Disable Pure.css responsive behavior */
+.pure-g {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-/* Prevent the right card from scaling in responsive grid */
-@media (min-width: 48em) {
-  .pure-g > .pure-u-md-1-3 {
-    flex: none !important;   /* stop Pure.css from resizing */
-  }
+/* Left chart: flexible width */
+.pure-g > .pure-u-1.pure-u-md-2-3 {
+  flex: 1 1 auto !important;
+  min-width: 0;
 }
 
-/* Content padding inside the fixed box */
+/* Fixed right insights box */
+.pure-g > .pure-u-1.pure-u-md-1-3 {
+  flex: none !important;
+  width: 340px !important;     /* fixed size */
+  min-width: 340px !important;
+  max-width: 340px !important;
+}
+
+/* Keep both cards top aligned */
+.card.unified {
+  flex: 1 1 auto;
+  align-self: flex-start;
+}
+
+/* Insight card content */
 .insight-card .block {
   padding: 32px 28px 40px 28px;
 }
 
-/* Title inside the fixed insights box */
+/* Section header style inside box */
 .insight-card .insight-title {
   font-weight: 800;
   font-size: 28px;
@@ -202,11 +215,12 @@ body::before {
 }
 .insight-card .insight-list li { margin: 8px 0; }
 
-/* Chart card stays flexible */
+/* Keep chart styling intact */
 .story-lollipop {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   width: 100%;
+  height: 480px;
 }
 
 /* Section spacing */
