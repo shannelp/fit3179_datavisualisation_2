@@ -267,88 +267,55 @@ section.pure-g { margin-top: 24px; }
   text-justify: inter-word;
 }
 
-/* ==== RADIAL (text left, chart right) — fixed desktop ==== */
+/* -------------------------------------------------- */
+/* RADIAL SECTION REFINEMENT — MATCH BOX HEIGHT & SPACING */
+/* -------------------------------------------------- */
 
-/* Stop Pure.css from reflowing this row */
-.pure-g.map-radial-row{
-  display:flex !important;
-  flex-wrap:nowrap !important;
-  align-items:flex-start;
-  justify-content:flex-start;
-  gap:24px;
-  margin-top:24px;
+/* Remove excess space between the donut and the chart above */
+.pure-g.map-radial-row {
+  margin-top: 12px !important;   /* was 24px — tighten vertical spacing */
 }
 
-/* LEFT column: fixed text card width */
-.pure-g.map-radial-row > .pure-u-1.pure-u-md-1-2:first-child{
-  flex:none !important;
-  width:360px !important;
-  min-width:360px !important;
-  max-width:360px !important;
+/* Keep the entire row aligned with others */
+.pure-g.map-radial-row > .pure-u-1.pure-u-md-1-2 {
+  align-self: stretch;           /* make both cards same height visually */
 }
 
-/* RIGHT column: holds the donut card */
-.pure-g.map-radial-row > .pure-u-1.pure-u-md-1-2:last-child{
-  flex:none !important;          /* keep it fixed too */
-  width:640px !important;        /* card box */
-  min-width:640px !important;
+/* Match card height consistency with other .card.unified sections */
+.pure-g.map-radial-row .card.unified {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;       /* centers content vertically */
 }
 
-/* Card look (matches your other panels) */
-.card.unified{
-  background:#fff;
-  border-radius:16px;
-  box-shadow:0 2px 10px rgba(0,0,0,.05);
-  align-self:flex-start;
-}
-.card.unified .block{ padding:24px 28px 32px; }
-
-/* Text styles inside the left card */
-.block.storytelling h2{
-  font-weight:800;
-  font-size:28px;
-  line-height:1.25;
-  margin:0 0 12px;
-  color:var(--blue-900,#0d3069);
-}
-.block.storytelling p{
-  margin:0 0 6px;
-  font-size:17px;
-  font-weight:600;
-  line-height:1.55;
-  color:var(--blue-800,#1b4b87);
+/* Text box tighter padding (align visually with other cards) */
+.map-radial-row .block.storytelling {
+  padding: 22px 26px 24px 26px;  /* match your global .block rhythm */
 }
 
-/* Donut chart container (inside right card) */
-.story-radial{
-  display:grid;
-  place-items:center;
-  width:640px;                  /* fixed card */
-  height:640px;
-  border-radius:12px;
-  overflow:visible;             /* let legend/ticks breathe */
-  background:#fff;
+/* Donut card box slightly smaller to visually align with others */
+.map-radial-row .story-radial {
+  width: 580px;                  /* instead of 640px — matches card height */
+  height: 580px;
+  margin: 0 auto;
 }
 
-/* Force Vega/Vega-Lite to exact drawing size */
-.story-radial .vega-embed,
-.story-radial .vega-embed > *{
-  display:block;
-  width:600px !important;
-  height:600px !important;
-  max-width:none !important;
-  max-height:none !important;
-  overflow:visible !important;
-}
-.story-radial svg,
-.story-radial canvas{
-  display:block;
-  width:600px !important;
-  height:600px !important;
+/* Keep Vega chart fixed within adjusted box */
+.map-radial-row .story-radial .vega-embed,
+.map-radial-row .story-radial .vega-embed > *,
+.map-radial-row .story-radial svg,
+.map-radial-row .story-radial canvas {
+  width: 540px !important;
+  height: 540px !important;
 }
 
-/* Safety: never clip horizontally */
-html, body, .map-radial-row, .card.unified{ overflow-x:visible !important; }
+/* Optional: give cards identical shadow depth and corner rounding */
+.map-radial-row .card.unified {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
 
 /* -------------------------------------------------- */
 /* FOOTER */
