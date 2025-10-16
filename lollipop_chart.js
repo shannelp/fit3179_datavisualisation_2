@@ -2,15 +2,6 @@
 const avgRatingSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Horizontal lollipop chart of average rating by location (range 4.0–4.3).",
-  title: {
-    text: "Average Customer Ratings Across Malaysian Locations",
-    subtitle: "Comparing mean review scores based on food reviews",
-    fontSize: 25,
-    subtitleFontSize: 16,
-    anchor: "center",
-    color: "#000000",
-    subtitleColor: "#5e5e5e"
-  },
   data: {
     url: "https://raw.githubusercontent.com/shannelp/vegadata/main/food_ratings.csv",
     format: { type: "csv" }
