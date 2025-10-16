@@ -271,65 +271,43 @@ section.pure-g { margin-top: 24px; }
 /* -------------------------------------------------- */
 /* RADIAL (DONUT) CHART — enlarged and centered */
 /* -------------------------------------------------- */
-.story-radial {
+/* Layout row */
+
+.story-row {
   display: flex;
-  justify-content: center;     /* center horizontally */
-  align-items: center;          /* center vertically */
-  height: 600px;                /* increased from 480px */
-  width: 600px;                  /* allow full container width */
-  background: #fff;
-  position: relative;
-  overflow: hidden;             /* prevents layout push from oversized svg */
-  border-radius: 12px;          /* match card rounding */
+  gap: 24px;
+  align-items: flex-start;
 }
 
-/* Vega-Embed wraps the chart in one or more divs; make them flex-centered too */
-.story-radial > div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Text panel */
+.story-text { flex: 0 1 38%; }
+
+/* Chart panel — square, centered, won’t shrink below 420px */
+.story-radial {
+  flex: 0 1 62%;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  /* keep it square and responsive within bounds */
+  width: clamp(420px, 48vw, 600px);
+  aspect-ratio: 1 / 1;       /* locks the donut to a square */
+}
+
+/* Let Vega-Embed fill the panel but not stretch smaller than its min */
+.story-radial > div,
+.story-radial .vega-embed {
   width: 100%;
   height: 100%;
 }
 
-/* Stop the wrapper from stretching full-width so it can be centered */
-.story-radial .vega-embed {
-  display: block;
-  margin: 0 auto !important;
-  width: 90% !important;        /* occupy most of the container */
-  height: 90% !important;       /* enlarge chart height proportionally */
+/* IMPORTANT: remove hard 100% sizing so it doesn’t keep shrinking */
+.story-radial svg,
+.story-radial canvas {
+  width: auto !important;     /* was 100% */
+  height: auto !important;    /* was 100% */
   max-width: 100%;
   max-height: 100%;
-}
-
-/* Ensure the visual itself behaves */
-.story-radial canvas,
-.story-radial svg {
   display: block;
-  margin: 0 auto !important;
-  height: 100% !important;
-  width: 100% !important;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-/* Assuming a flex container for both panels */
-.story-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 24px; /* space between text and chart */
-}
-
-/* Story text box smaller */
-.story-text {
-  flex: 0 0 35%;       /* was maybe 50%, reduce to 35% */
-  font-size: 0.9rem;   /* slightly smaller font for compactness */
-  line-height: 1.4;
-  padding: 16px 20px;  /* reduce padding */
-}
-
-/* Chart container gets more room */
-.story-radial {
-  flex: 0 0 60%;       /* increase from 50% to 60% */
 }
