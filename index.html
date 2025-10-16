@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DV2</title>
 
+  <!-- Pure.css grid (needed for .pure-g/.pure-u-1 alignment) -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css">
+
   <!-- Vega libraries (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@6.0.0"></script>
@@ -14,40 +18,46 @@
   <!-- Google font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- External CSS -->
+  <!-- Your CSS with the updated .page/.hero/.card rules -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- HEADER (same fixed width as content) -->
-  <header class="hero">
-    <div class="hero-eyebrow">From Plates to Patterns</div>
-    <h1 class="hero-title">Insights from Food Ratings and F&amp;B Business Data across <span class="accent">Malaysia</span></h1>
-    <p class="hero-subtitle">Comparing reviews and growth of F&amp;B sectors</p>
-  </header>
+  <div class="page">
+    <!-- HERO -->
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <header class="hero">
+          <div class="hero-eyebrow">From Plates to Patterns</div>
+          <h1 class="hero-title">
+            Insights from Food Ratings and F&amp;B Business Data across
+            <span class="accent">Malaysia</span>
+          </h1>
+          <p class="hero-subtitle">Comparing reviews and growth of F&amp;B sectors</p>
+        </header>
+      </div>
+    </div>
 
-  <!-- ONE unified container for everything below -->
-  <section class="vis-wrap">
-    <article class="card unified" aria-labelledby="story-title">
+    <!-- UNIFIED CARD -->
+    <div class="pure-g">
+      <div class="pure-u-1">
+        <article class="card unified" aria-labelledby="story-title">
+          <header class="storytelling">
+            <h2 id="story-title">Mapping Malaysia’s Culinary Landscape</h2>
+            <p>This map shows 281 food businesses across Malaysia...</p>
+          </header>
 
-      <!-- Intro story -->
-      <header class="storytelling" role="doc-introduction">
-        <h2 id="story-title">Mapping Malaysia’s Culinary Landscape</h2>
-        <p>This map shows 281 food businesses across Malaysia. Kuala Lumpur,</p>
-        <p>Selangor, and Penang lead with dense clusters. Urban growth and </p>
-        <p>tourism drive these thriving food hubs. Johor and Melaka showcase rich</p>
-        <p>heritage and cross-border flavours. East Malaysia’s Sabah and Sarawak</p>
-        <p>show emerging growth. Each dot reflects local passion and culinary</p>
-        <p>entrepreneurship. From Penang’s hawker stalls to Sabah’s seaside cafes,</p>
-        <p>these regions celebrate Malaysia’s diverse food and culture.</p>
-        <p>Geography as well as economy shape where flavours come alive.</p>
-        <p>Together, they form Malaysia’s vibrant, ever-evolving foodscape.</p>
-      </header>
+          <!-- Map -->
+          <div id="fnb_map" class="story-map" aria-label="Map of F&amp;B businesses in Malaysia"></div>
 
-      <!-- Map -->
-      <div id="fnb_map" class="story-map" aria-label="Map of F&amp;B businesses in Malaysia"></div>
+          <!-- Optional: more blocks inside the same card -->
+          <!-- <section class="block"><div id="stacked_chart"></div></section> -->
+        </article>
+      </div>
+    </div>
+  </div>
 
-  <!-- Visualisations -->
+  <!-- Visualisations (place scripts BEFORE closing body) -->
   <script src="stacked_barchart.js"></script>
   <script src="jittered_map.js"></script>
   <script src="radial_chart.js"></script>
