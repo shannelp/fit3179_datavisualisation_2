@@ -32,9 +32,9 @@ const avgRatingSpec = {
       from: {
         data: {
           values: [
-            { LocationFull: "Kuala Lumpur", pop_label: "Highest population, about 1.9 million people" },
-            { LocationFull: "Johor Bahru", pop_label: "Second highest population, about 1.1 million people" },
-            { LocationFull: "Penang", pop_label: "Third highest population, about 740,000 people" }
+            { LocationFull: "Kuala Lumpur", pop_label: "Highest population, ~1.9 million people" },
+            { LocationFull: "Johor Bahru", pop_label: "Second highest population, ~1.1 million people" },
+            { LocationFull: "Penang", pop_label: "Third highest population, ~740K people" }
           ]
         },
         key: "LocationFull",
