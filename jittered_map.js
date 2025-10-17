@@ -66,7 +66,7 @@ const malaysiaFnbStateMap = {
         "type": "circle",
         "stroke": "#00000033",
         "strokeWidth": 0.3,
-        "opacity": 0.7
+        "opacity": 1
       },
       "encoding": {
         "longitude": { "field": "longitude", "type": "quantitative" },
