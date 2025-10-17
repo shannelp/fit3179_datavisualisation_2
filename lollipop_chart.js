@@ -1,7 +1,7 @@
 // avg_rating_lollipop.js
 const avgRatingSpec = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
-  description: "Horizontal lollipop chart of average rating by location (range 4.0–4.3).",
+  description: "Horizontal lollipop chart of average rating by location (manual highlights + population labels).",
   data: {
     url: "https://raw.githubusercontent.com/shannelp/vegadata/main/food_ratings.csv",
     format: { type: "csv" }
@@ -21,16 +21,30 @@ const avgRatingSpec = {
       ],
       groupby: ["LocationFull"]
     },
-    { joinaggregate: [{ op: "max", field: "avg_rating", as: "max_avg" }] },
-    { calculate: "abs(datum.avg_rating - datum.max_avg) < 1e-6", as: "isTop" }
+    {
+      // Manually highlight KL, JB, Penang
+      calculate: "indexof(['Kuala Lumpur','Johor Bahru','Penang'], datum.LocationFull) >= 0",
+      as: "isHighlighted"
+    },
+    {
+      // Attach population labels for highlighted cities
+      lookup: "LocationFull",
+      from: {
+        data: {
+          values: [
+            { LocationFull: "Kuala Lumpur", pop_label: "Highest population, about 1.9 million people" },
+            { LocationFull: "Johor Bahru", pop_label: "Second highest population, about 1.1 million people" },
+            { LocationFull: "Penang", pop_label: "Third highest population, about 740,000 people" }
+          ]
+        },
+        key: "LocationFull",
+        fields: ["pop_label"]
+      }
+    }
   ],
   height: 400,
   width: 400,
   layer: [
-    {
-      mark: { type: "text", align: "left", baseline: "bottom", dx: 6, dy: -6, fontSize: 12, color: "#032223" },
-      encoding: { x: { value: 4.2 }, y: { value: 0 } }
-    },
     {
       // Lollipop stem
       mark: { type: "rule", strokeWidth: 8 },
@@ -38,7 +52,7 @@ const avgRatingSpec = {
         y: {
           field: "LocationFull",
           type: "nominal",
-          sort: "-x", // sort by x (avg_rating) descending
+          sort: "-x",
           axis: { labelAngle: 0, labelFontSize: 14, titleFontSize: 16 }
         },
         x: {
@@ -48,7 +62,10 @@ const avgRatingSpec = {
           axis: { format: ".2f", tickCount: 7, labelAngle: 0, labelFontSize: 14, titleFontSize: 16 }
         },
         x2: { value: 4.0 },
-        color: { condition: { test: "datum.isTop", value: "#FFD1D1" }, value: "#cfe8e4" }
+        color: {
+          condition: { test: "datum.isHighlighted", value: "#FFD1D1" },
+          value: "#cfe8e4"
+        }
       }
     },
     {
@@ -58,7 +75,7 @@ const avgRatingSpec = {
         y: {
           field: "LocationFull",
           type: "nominal",
-          sort: "-x", // keep same ordering as stem
+          sort: "-x",
           axis: { labelAngle: 0, labelFontSize: 14, titleFontSize: 16 }
         },
         x: {
@@ -68,10 +85,10 @@ const avgRatingSpec = {
           scale: { domain: [4.0, 4.3], zero: false, nice: false },
           axis: { format: ".2f", tickCount: 7, labelAngle: 0, labelFontSize: 12, titleFontSize: 14 }
         },
-        size: { condition: { test: "datum.isTop", value: 220 }, value: 220 },
-        color: { condition: { test: "datum.isTop", value: "#FFBDBD" }, value: "#86B0BD" },
-        stroke: { condition: { test: "datum.isTop", value: "#FFA4A4" }, value: "#3a6a75" },
-        strokeWidth: { condition: { test: "datum.isTop", value: 2 }, value: 1 },
+        size: { condition: { test: "datum.isHighlighted", value: 220 }, value: 220 },
+        color: { condition: { test: "datum.isHighlighted", value: "#FFBDBD" }, value: "#86B0BD" },
+        stroke: { condition: { test: "datum.isHighlighted", value: "#FFA4A4" }, value: "#3a6a75" },
+        strokeWidth: { condition: { test: "datum.isHighlighted", value: 2 }, value: 1 },
         tooltip: [
           { field: "LocationFull", title: "Location" },
           { field: "avg_rating", title: "Avg Rating", format: ".4f" },
@@ -80,13 +97,21 @@ const avgRatingSpec = {
       }
     },
     {
-      // Label for the highest rating
-      transform: [{ filter: "datum.isTop" }],
-      mark: { type: "text", dx: 15, align: "left", baseline: "middle", fontSize: 12, fontWeight: "bold", color: "#FFA4A4" },
+      // Population note for highlighted locations (only when label exists)
+      transform: [{ filter: "datum.isHighlighted && isValid(datum.pop_label)" }],
+      mark: {
+        type: "text",
+        dx: 15,
+        align: "left",
+        baseline: "middle",
+        fontSize: 12,
+        fontWeight: "bold",
+        color: "#FFA4A4"
+      },
       encoding: {
         y: { field: "LocationFull", type: "nominal", sort: "-x" },
         x: { field: "avg_rating", type: "quantitative" },
-        text: { value: "Highest Rating" }
+        text: { field: "pop_label", title: "Population" }
       }
     }
   ],
