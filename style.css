@@ -105,7 +105,7 @@ body {
   padding: 22px 28px;
 }
 .storytelling h2 {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 28px;
   line-height: 1.2;
   margin: 0 0 10px;
@@ -183,7 +183,7 @@ body {
 
 /* Section header style inside box */
 .insight-card .insight-title {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 28px;
   line-height: 1.25;
   margin: 0 0 12px;
@@ -261,7 +261,7 @@ section.pure-g { margin-top: 24px; }
 
 .storytelling-below p {
   color: var(--blue-700);
-  font-weight: 600;
+  font-weight: 400;
   margin: 8px 0;
   text-align: justify;
   text-justify: inter-word;
