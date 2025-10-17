@@ -75,12 +75,12 @@ const malaysiaFnbStateMap = {
         "color": {
           "condition": {
             "test": "stateParam != 'all'",
-            "value": "#244f2f"
+            "value": "#ccd5ae"
           },
           "field": "zone",
           "type": "nominal",
           "title": "Area",
-          "scale": { "range": ["#ffd6a5", "#a2d2ff"] },
+          "scale": { "range": ["#f4978e", "#99c1de"] },
           "legend": {
             "title": "Area",
             "orient": "right",
