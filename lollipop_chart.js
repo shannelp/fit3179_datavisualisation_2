@@ -76,6 +76,7 @@ const avgRatingSpec = {
           field: "LocationFull",
           type: "nominal",
           sort: "-x",
+          title: "Location",
           axis: { labelAngle: 0, labelFontSize: 14, titleFontSize: 16 }
         },
         x: {
