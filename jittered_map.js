@@ -80,7 +80,7 @@ const malaysiaFnbStateMap = {
           "field": "zone",
           "type": "nominal",
           "title": "Area",
-          "scale": { "range": ["#225059", "#9c5480"] },
+          "scale": { "range": ["#ffd6a5", "#a2d2ff"] },
           "legend": {
             "title": "Area",
             "orient": "right",
