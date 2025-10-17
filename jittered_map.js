@@ -75,7 +75,7 @@ const malaysiaFnbStateMap = {
         "color": {
           "condition": {
             "test": "stateParam != 'all'",
-            "value": "#ccd5ae"
+            "value": "#c4cea1"
           },
           "field": "zone",
           "type": "nominal",
