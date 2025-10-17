@@ -36,7 +36,7 @@ const radialFnbSpec = {
       title: "Business Size (Employees)",
       scale: {
         domain: ["1-10","11-50","51-200","201-500","501-1,000","1,001-5,000","5,001-10,000"],
-        range: ["#FADADD","#F9E79F","#A8E6CF","#AECBFA","#F8C8DC","#FFD8B1","#C9B6E4"] // pastel palette
+        range: ["#FADADD","#F9E79F","#A8E6CF","#AECBFA","#EB7D73","#FFD8B1","#C9B6E4"] // pastel palette
       },
       sort: ["1-10","11-50","51-200","201-500","501-1,000","1,001-5,000","5,001-10,000"],
       legend: {
